@@ -218,6 +218,14 @@ App = {
     window.location.reload();
   },
 
+  connectToWallet: () => {
+    let account;
+    ethereum.request({ method: "eth_requestAccounts" }).then((accounts) => {
+      account = accounts[0];
+      console.log(account);
+    });
+  },
+
   getTrainningTypes: async (trainType) => {
     const api = await fetch(
       `https://api.api-ninjas.com/v1/caloriesburned?activity=${trainType}`,

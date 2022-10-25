@@ -2021,6 +2021,12 @@
     "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
   },
   "networks": {
+    "5": {
+      "events": {},
+      "links": {},
+      "address": "0x88bA5919d47b6752800a0F08692E0319c73c0eBc",
+      "transactionHash": "0x840e9d7adff65a3e837e6c55a2797d71f518e69b83396c0521dce4d80835f8f5"
+    },
     "1337": {
       "events": {},
       "links": {},
@@ -2029,7 +2035,7 @@
     }
   },
   "schemaVersion": "3.0.1",
-  "updatedAt": "2022-10-13T13:26:29.999Z",
+  "updatedAt": "2022-10-25T19:33:03.807Z",
   "devdoc": {
     "methods": {}
   },
