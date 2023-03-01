@@ -50,6 +50,8 @@ App = {
   loadAccount: async () => {
     // Set the current blockchain account
     App.account = web3.eth.accounts[0];
+    const accounts = await ethereum.request({ method: "eth_requestAccounts" });
+    $("#account").text(accounts[0]);
   },
 
   loadContract: async () => {

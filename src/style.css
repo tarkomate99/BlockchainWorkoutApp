@@ -1,0 +1,66 @@
+main {
+  margin-top: 60px;
+}
+
+#content {
+  display: none;
+}
+#content2 {
+  display: none;
+}
+
+form {
+  width: 350px;
+  margin-bottom: 10px;
+}
+ul {
+  margin-bottom: 0px;
+}
+
+#completedTaskList .content {
+  color: grey;
+  text-decoration: line-through;
+}
+#searchList {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+#searchList div label {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  background-color: #f6f6f6;
+  padding: 12px;
+  color: black;
+  display: block;
+}
+#searchList div label:hover:not(.header) {
+  background-color: #eee;
+}
+
+#height::placeholder {
+  text-align: right;
+}
+
+#weight::placeholder {
+  text-align: right;
+}
+#search {
+  border-radius: 20px;
+}
+
+#sendBtn {
+  border-radius: 20px;
+}
+
+#calculate {
+  border-radius: 20px;
+}
+
+#newTask {
+  border-radius: 20px;
+}
+
+#account {
+  color: white;
+}

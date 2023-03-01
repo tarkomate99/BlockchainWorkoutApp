@@ -13,62 +13,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
+	<link rel="stylesheet" href="style.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-    <style>
-      main {
-        margin-top: 60px;
-      }
-
-      #content {
-        display: none;
-      }
-      #content2 {
-        display: none;
-      }
-
-      form {
-        width: 350px;
-        margin-bottom: 10px;
-      }
-      ul {
-        margin-bottom: 0px;
-      }
-
-      #completedTaskList .content {
-        color: grey;
-        text-decoration: line-through;
-      }
-      #searchList {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-      #searchList div label {
-        border: 1px solid #ddd;
-        margin-top: -1px;
-        background-color: #f6f6f6;
-        padding: 12px;
-        color: black;
-        display: block;
-      }
-      #searchList div label:hover:not(.header) {
-        background-color: #eee;
-      }
-
-      #height::placeholder {
-        text-align: right;
-      }
-
-      #weight::placeholder {
-        text-align: right;
-      }
-    </style>
   </head>
   <body>
     <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
@@ -78,6 +29,11 @@
         target="_blank"
         >Blockchain Workout App</a
       >
+	  <ul class="navbar-nav ml-auto">
+		<li class="nav-item">
+			<span id="account">Account</span>
+		</li>
+	  </ul>
       </button>
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
