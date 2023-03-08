@@ -217,6 +217,7 @@ App = {
     App.setLoading(true);
     const accounts = await web3.eth.getAccounts();
     App.account = accounts[0];
+    const IPFS = require("ipfs-mini");
     await App.workoutList.createWorkout(workout, burnedCal, workoutMin, {
       from: App.account,
     });
