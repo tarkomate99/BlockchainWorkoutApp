@@ -65,3 +65,8 @@ ul {
   color: white;
   margin-right: 10px;
 }
+
+.workoutImage {
+  max-width: 50px;
+  max-height: 50px;
+}

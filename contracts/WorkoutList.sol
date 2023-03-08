@@ -10,6 +10,8 @@ contract WorkoutList {
         string workoutName;
         uint burnedCalories;
         uint workoutTime;
+        string imageHash;
+        uint timeStamp;
     }
 
     constructor() public {}
@@ -17,14 +19,18 @@ contract WorkoutList {
     function createWorkout(
         string memory _workoutName,
         uint _burnedCalories,
-        uint _workoutTime
+        uint _workoutTime,
+        string memory _imageHash,
+        uint _timeStamp
     ) public {
         workoutCount++;
         workouts[workoutCount] = Workout(
             workoutCount,
             _workoutName,
             _burnedCalories,
-            _workoutTime
+            _workoutTime,
+            _imageHash,
+            _timeStamp
         );
     }
 }
