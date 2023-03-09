@@ -161,6 +161,7 @@ App = {
       $newTrainTemplate.find(".content").html(workoutName);
       $newTrainTemplate.find(".kcal").html(burnedCal + " kcal");
       $newTrainTemplate.find(".workoutTime").html(workoutTime + " minute");
+      $newTrainTemplate.find(".workoutImg").src = "";
       $newTrainTemplate
         .find(".workoutTimestamp")
         .html(new Date().toLocaleString());
