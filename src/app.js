@@ -209,7 +209,7 @@ App = {
     $("#burnedLabel").val(e.target.kcal);
     $("#sendBtn").show();
     $("#workName").show();
-    //$("#burnedLabel").show();
+    $("#workoutImage").show();
     $("#workoutMinLabel").show();
   },
 
@@ -217,7 +217,6 @@ App = {
     App.setLoading(true);
     const accounts = await web3.eth.getAccounts();
     App.account = accounts[0];
-    const IPFS = require("ipfs-mini");
     await App.workoutList.createWorkout(workout, burnedCal, workoutMin, {
       from: App.account,
     });
@@ -266,6 +265,7 @@ App = {
 $(() => {
   $(window).load(() => {
     App.load();
+    $("#workoutImage").trigger("click");
     $("#search").click(function () {
       App.resetSearchBar();
       const train = $("#newTask").val();
@@ -308,5 +308,19 @@ $(() => {
       $("#bmi").text(BMI.toFixed(3) + " " + bmi_weight);
       $("#bmi").show();
     });
+    function getBase64(file) {
+      var reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onloadend = function () {
+        console.log(reader.result);
+      };
+      reader.onerror = function (error) {
+        console.log("Error: ", error);
+      };
+    }
+    document.getElementById("workoutImage").onchange = function () {
+      console.log(this.files[0]);
+      getBase64(this.files[0]);
+    };
   });
 });
