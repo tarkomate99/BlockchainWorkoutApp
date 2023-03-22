@@ -2,24 +2,31 @@
   "contractName": "WorkoutList",
   "abi": [
     {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
       "constant": true,
       "inputs": [],
       "name": "workoutCount",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0x35422e0f"
+      "type": "function"
     },
     {
       "constant": true,
       "inputs": [
         {
+          "internalType": "uint256",
           "name": "",
           "type": "uint256"
         }
@@ -27,47 +34,66 @@
       "name": "workouts",
       "outputs": [
         {
+          "internalType": "uint256",
           "name": "id",
           "type": "uint256"
         },
         {
+          "internalType": "string",
           "name": "workoutName",
           "type": "string"
         },
         {
+          "internalType": "uint256",
           "name": "burnedCalories",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "workoutTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "imageHash",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "timeStamp",
           "type": "uint256"
         }
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function",
-      "signature": "0xcd56ec31"
-    },
-    {
-      "inputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "constructor",
-      "signature": "constructor"
+      "type": "function"
     },
     {
       "constant": false,
       "inputs": [
         {
+          "internalType": "string",
           "name": "_workoutName",
           "type": "string"
         },
         {
+          "internalType": "uint256",
           "name": "_burnedCalories",
           "type": "uint256"
         },
         {
+          "internalType": "uint256",
           "name": "_workoutTime",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "_imageHash",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_timeStamp",
           "type": "uint256"
         }
       ],
@@ -75,28 +101,28 @@
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function",
-      "signature": "0x2fe542ef"
+      "type": "function"
     }
   ],
-  "bytecode": "0x60806040526000805534801561001457600080fd5b506103e2806100246000396000f3fe6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632fe542ef811461005b57806335422e0f14610115578063cd56ec311461013c575b600080fd5b34801561006757600080fd5b506101136004803603606081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955050823593505050602001356101f3565b005b34801561012157600080fd5b5061012a610263565b60408051918252519081900360200190f35b34801561014857600080fd5b506101666004803603602081101561015f57600080fd5b5035610269565b6040518085815260200180602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156101b557818101518382015260200161019d565b50505050905090810190601f1680156101e25780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b6000805460019081018083556040805160808101825282815260208082018981528284018990526060830188905293865284815291909420845181559151805192936102479390850192919091019061031b565b5060408201516002820155606090910151600390910155505050565b60005481565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156103055780601f106102da57610100808354040283529160200191610305565b820191906000526020600020905b8154815290600101906020018083116102e857829003601f168201915b5050505050908060020154908060030154905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061035c57805160ff1916838001178555610389565b82800160010185558215610389579182015b8281111561038957825182559160200191906001019061036e565b50610395929150610399565b5090565b6103b391905b80821115610395576000815560010161039f565b9056fea165627a7a72305820aae783082fb33083613228b538274da965d3c1d5639c9c82605d3f3693f2b1120029",
-  "deployedBytecode": "0x6080604052600436106100565763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416632fe542ef811461005b57806335422e0f14610115578063cd56ec311461013c575b600080fd5b34801561006757600080fd5b506101136004803603606081101561007e57600080fd5b81019060208101813564010000000081111561009957600080fd5b8201836020820111156100ab57600080fd5b803590602001918460018302840111640100000000831117156100cd57600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955050823593505050602001356101f3565b005b34801561012157600080fd5b5061012a610263565b60408051918252519081900360200190f35b34801561014857600080fd5b506101666004803603602081101561015f57600080fd5b5035610269565b6040518085815260200180602001848152602001838152602001828103825285818151815260200191508051906020019080838360005b838110156101b557818101518382015260200161019d565b50505050905090810190601f1680156101e25780820380516001836020036101000a031916815260200191505b509550505050505060405180910390f35b6000805460019081018083556040805160808101825282815260208082018981528284018990526060830188905293865284815291909420845181559151805192936102479390850192919091019061031b565b5060408201516002820155606090910151600390910155505050565b60005481565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156103055780601f106102da57610100808354040283529160200191610305565b820191906000526020600020905b8154815290600101906020018083116102e857829003601f168201915b5050505050908060020154908060030154905084565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061035c57805160ff1916838001178555610389565b82800160010185558215610389579182015b8281111561038957825182559160200191906001019061036e565b50610395929150610399565b5090565b6103b391905b80821115610395576000815560010161039f565b9056fea165627a7a72305820aae783082fb33083613228b538274da965d3c1d5639c9c82605d3f3693f2b1120029",
-  "sourceMap": "76:586:2:-;;;130:1;103:28;;312:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;312:23:2;76:586;;;;;;",
-  "deployedSourceMap": "76:586:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;341:319;;8:9:-1;5:2;;;30:1;27;20:12;5:2;341:319:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;341:319:2;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;341:319:2;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;341:319:2;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;341:319:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;341:319:2;;-1:-1:-1;;341:319:2;;;-1:-1:-1;;;341:319:2;;;;;;;103:28;;8:9:-1;5:2;;;30:1;27;20:12;5:2;103:28:2;;;;;;;;;;;;;;;;;;;;137:40;;8:9:-1;5:2;;;30:1;27;20:12;5:2;137:40:2;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;137:40:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;137:40:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;341:319;480:12;:14;;;;;;;;;529:124;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;504:22;;;;;;;;;;:149;;;;;;;;:22;;:149;;;;;;;;;;;;:::i;:::-;-1:-1:-1;504:149:2;;;;;;;;;;;;;;;;;;-1:-1:-1;;;341:319:2:o;103:28::-;;;;:::o;137:40::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;137:40:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;76:586::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;76:586:2;;;-1:-1:-1;76:586:2;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\npragma solidity ^0.5.0;\n\ncontract WorkoutList {\n    uint public workoutCount = 0;\n    mapping(uint => Workout) public workouts;\n\n    struct Workout {\n        uint id;\n        string workoutName;\n        uint burnedCalories;\n        uint workoutTime;\n    }\n\n    constructor() public {}\n\n    function createWorkout(\n        string memory _workoutName,\n        uint _burnedCalories,\n        uint _workoutTime\n    ) public {\n        workoutCount++;\n        workouts[workoutCount] = Workout(\n            workoutCount,\n            _workoutName,\n            _burnedCalories,\n            _workoutTime\n        );\n    }\n}\n",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"_workoutName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_burnedCalories\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_workoutTime\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_imageHash\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_timeStamp\",\"type\":\"uint256\"}],\"name\":\"createWorkout\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"workoutCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"workouts\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"id\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"workoutName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"burnedCalories\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"workoutTime\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"imageHash\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"timeStamp\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/WorkoutList.sol\":\"WorkoutList\"},\"evmVersion\":\"homestead\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/WorkoutList.sol\":{\"keccak256\":\"0xf287e1c23d1aa4c4d0c7adcbb03fca64f29dd639ea844744e91faf6f935e4eb4\",\"urls\":[\"bzz-raw://1707186c69ae8b20154f52bdf14e64835bdba850ac98cb2bf66ee276bc28dccd\",\"dweb:/ipfs/QmStJ7QHKCHafeqXzP8GRadxCy4TTzoXdDCFqwu1HpNXFB\"]}},\"version\":1}",
+  "bytecode": "0x60806040526000805534801561001457600080fd5b506105a3806100246000396000f3fe608060405234801561001057600080fd5b506004361061005d577c0100000000000000000000000000000000000000000000000000000000600035046335422e0f8114610062578063c4416c111461007c578063cd56ec31146101b9575b600080fd5b61006a6102d0565b60408051918252519081900360200190f35b6101b7600480360360a081101561009257600080fd5b8101906020810181356401000000008111156100ad57600080fd5b8201836020820111156100bf57600080fd5b803590602001918460018302840111640100000000831117156100e157600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929584359560208601359591945092506060810191506040013564010000000081111561014057600080fd5b82018360208201111561015257600080fd5b8035906020019184600183028401116401000000008311171561017457600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955050913592506102d6915050565b005b6101d6600480360360208110156101cf57600080fd5b503561037d565b604051808781526020018060200186815260200185815260200180602001848152602001838103835288818151815260200191508051906020019080838360005b8381101561022f578181015183820152602001610217565b50505050905090810190601f16801561025c5780820380516001836020036101000a031916815260200191505b50838103825285518152855160209182019187019080838360005b8381101561028f578181015183820152602001610277565b50505050905090810190601f1680156102bc5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b60005481565b6000805460019081018083556040805160c08101825282815260208082018b81528284018b9052606083018a90526080830189905260a083018890529386528481529190942084518155915180519293610338939085019291909101906104d3565b506040820151600282015560608201516003820155608082015180516103689160048401916020909101906104d3565b5060a082015181600501559050505050505050565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156104195780601f106103ee57610100808354040283529160200191610419565b820191906000526020600020905b8154815290600101906020018083116103fc57829003601f168201915b505050505090806002015490806003015490806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104c35780601f10610498576101008083540402835291602001916104c3565b820191906000526020600020905b8154815290600101906020018083116104a657829003601f168201915b5050505050908060050154905086565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061051457805160ff1916838001178555610541565b82800160010185558215610541579182015b82811115610541578251825591602001919060010190610526565b5061054d929150610551565b5090565b61056b91905b8082111561054d5760008155600101610557565b9056fea265627a7a72315820ffb63ccd0ab976a13ca17ba250a254f1208a6a80a838d0fce2d7ced15a47f60164736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061005d577c0100000000000000000000000000000000000000000000000000000000600035046335422e0f8114610062578063c4416c111461007c578063cd56ec31146101b9575b600080fd5b61006a6102d0565b60408051918252519081900360200190f35b6101b7600480360360a081101561009257600080fd5b8101906020810181356401000000008111156100ad57600080fd5b8201836020820111156100bf57600080fd5b803590602001918460018302840111640100000000831117156100e157600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600092019190915250929584359560208601359591945092506060810191506040013564010000000081111561014057600080fd5b82018360208201111561015257600080fd5b8035906020019184600183028401116401000000008311171561017457600080fd5b91908080601f01602080910402602001604051908101604052809392919081815260200183838082843760009201919091525092955050913592506102d6915050565b005b6101d6600480360360208110156101cf57600080fd5b503561037d565b604051808781526020018060200186815260200185815260200180602001848152602001838103835288818151815260200191508051906020019080838360005b8381101561022f578181015183820152602001610217565b50505050905090810190601f16801561025c5780820380516001836020036101000a031916815260200191505b50838103825285518152855160209182019187019080838360005b8381101561028f578181015183820152602001610277565b50505050905090810190601f1680156102bc5780820380516001836020036101000a031916815260200191505b509850505050505050505060405180910390f35b60005481565b6000805460019081018083556040805160c08101825282815260208082018b81528284018b9052606083018a90526080830189905260a083018890529386528481529190942084518155915180519293610338939085019291909101906104d3565b506040820151600282015560608201516003820155608082015180516103689160048401916020909101906104d3565b5060a082015181600501559050505050505050565b600160208181526000928352604092839020805481840180548651600296821615610100026000190190911695909504601f810185900485028601850190965285855290949193929091908301828280156104195780601f106103ee57610100808354040283529160200191610419565b820191906000526020600020905b8154815290600101906020018083116103fc57829003601f168201915b505050505090806002015490806003015490806004018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104c35780601f10610498576101008083540402835291602001916104c3565b820191906000526020600020905b8154815290600101906020018083116104a657829003601f168201915b5050505050908060050154905086565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061051457805160ff1916838001178555610541565b82800160010185558215610541579182015b82811115610541578251825591602001919060010190610526565b5061054d929150610551565b5090565b61056b91905b8082111561054d5760008155600101610557565b9056fea265627a7a72315820ffb63ccd0ab976a13ca17ba250a254f1208a6a80a838d0fce2d7ced15a47f60164736f6c63430005100032",
+  "sourceMap": "76:743:1:-;;;130:1;103:28;;362:23;8:9:-1;5:2;;;30:1;27;20:12;5:2;362:23:1;76:743;;;;;;",
+  "deployedSourceMap": "76:743:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;76:743:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;103:28;;;:::i;:::-;;;;;;;;;;;;;;;;391:426;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;391:426:1;;;;;;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;391:426:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;391:426:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;391:426:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;391:426:1;;;;;;;;;;;;-1:-1:-1;391:426:1;-1:-1:-1;391:426:1;;;;-1:-1:-1;391:426:1;;;21:11:-1;5:28;;2:2;;;46:1;43;36:12;2:2;391:426:1;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;391:426:1;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;391:426:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;81:16;;74:27;;;;-1:-1;391:426:1;;-1:-1:-1;;391:426:1;;;-1:-1:-1;391:426:1;;-1:-1:-1;;391:426:1:i;:::-;;137:40;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;-1:-1;137:40:1;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;137:40:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;137:40:1;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;90:11;;;84:18;71:11;;;64:39;52:2;45:10;8:100;;;12:14;137:40:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;103:28;;;;:::o;391:426::-;589:12;:14;;;;;;;;;638:172;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;613:22;;;;;;;;;;:197;;;;;;;;:22;;:197;;;;;;;;;;;;:::i;:::-;-1:-1:-1;613:197:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;391:426;;;;;:::o;137:40::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;;137:40:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;76:743::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;76:743:1;;;-1:-1:-1;76:743:1;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "// SPDX-License-Identifier: SEE LICENSE IN LICENSE\npragma solidity ^0.5.0;\n\ncontract WorkoutList {\n    uint public workoutCount = 0;\n    mapping(uint => Workout) public workouts;\n\n    struct Workout {\n        uint id;\n        string workoutName;\n        uint burnedCalories;\n        uint workoutTime;\n        string imageHash;\n        uint timeStamp;\n    }\n\n    constructor() public {}\n\n    function createWorkout(\n        string memory _workoutName,\n        uint _burnedCalories,\n        uint _workoutTime,\n        string memory _imageHash,\n        uint _timeStamp\n    ) public {\n        workoutCount++;\n        workouts[workoutCount] = Workout(\n            workoutCount,\n            _workoutName,\n            _burnedCalories,\n            _workoutTime,\n            _imageHash,\n            _timeStamp\n        );\n    }\n}\n",
   "sourcePath": "/Users/mac/Documents/BlockChain/eth-todo-list/contracts/WorkoutList.sol",
   "ast": {
-    "absolutePath": "/Users/mac/Documents/BlockChain/eth-todo-list/contracts/WorkoutList.sol",
+    "absolutePath": "project:/contracts/WorkoutList.sol",
     "exportedSymbols": {
       "WorkoutList": [
-        157
+        89
       ]
     },
-    "id": 158,
+    "id": 90,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 112,
+        "id": 34,
         "literals": [
           "solidity",
           "^",
@@ -104,7 +130,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "51:23:2"
+        "src": "51:23:1"
       },
       {
         "baseContracts": [],
@@ -112,20 +138,20 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 157,
+        "id": 89,
         "linearizedBaseContracts": [
-          157
+          89
         ],
         "name": "WorkoutList",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 115,
+            "id": 37,
             "name": "workoutCount",
             "nodeType": "VariableDeclaration",
-            "scope": 157,
-            "src": "103:28:2",
+            "scope": 89,
+            "src": "103:28:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -133,10 +159,10 @@
               "typeString": "uint256"
             },
             "typeName": {
-              "id": 113,
+              "id": 35,
               "name": "uint",
               "nodeType": "ElementaryTypeName",
-              "src": "103:4:2",
+              "src": "103:4:1",
               "typeDescriptions": {
                 "typeIdentifier": "t_uint256",
                 "typeString": "uint256"
@@ -145,14 +171,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 114,
+              "id": 36,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "130:1:2",
+              "src": "130:1:1",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_rational_0_by_1",
@@ -164,44 +190,44 @@
           },
           {
             "constant": false,
-            "id": 119,
+            "id": 41,
             "name": "workouts",
             "nodeType": "VariableDeclaration",
-            "scope": 157,
-            "src": "137:40:2",
+            "scope": 89,
+            "src": "137:40:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
+              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$54_storage_$",
               "typeString": "mapping(uint256 => struct WorkoutList.Workout)"
             },
             "typeName": {
-              "id": 118,
+              "id": 40,
               "keyType": {
-                "id": 116,
+                "id": 38,
                 "name": "uint",
                 "nodeType": "ElementaryTypeName",
-                "src": "145:4:2",
+                "src": "145:4:1",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
               "nodeType": "Mapping",
-              "src": "137:24:2",
+              "src": "137:24:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
+                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$54_storage_$",
                 "typeString": "mapping(uint256 => struct WorkoutList.Workout)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 117,
+                "id": 39,
                 "name": "Workout",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 128,
-                "src": "153:7:2",
+                "referencedDeclaration": 54,
+                "src": "153:7:1",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Workout_$128_storage_ptr",
+                  "typeIdentifier": "t_struct$_Workout_$54_storage_ptr",
                   "typeString": "struct WorkoutList.Workout"
                 }
               }
@@ -211,15 +237,15 @@
           },
           {
             "canonicalName": "WorkoutList.Workout",
-            "id": 128,
+            "id": 54,
             "members": [
               {
                 "constant": false,
-                "id": 121,
+                "id": 43,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "209:7:2",
+                "scope": 54,
+                "src": "209:7:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -227,10 +253,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 120,
+                  "id": 42,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "209:4:2",
+                  "src": "209:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -241,11 +267,11 @@
               },
               {
                 "constant": false,
-                "id": 123,
+                "id": 45,
                 "name": "workoutName",
                 "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "226:18:2",
+                "scope": 54,
+                "src": "226:18:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -253,10 +279,10 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 122,
+                  "id": 44,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
-                  "src": "226:6:2",
+                  "src": "226:6:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_string_storage_ptr",
                     "typeString": "string"
@@ -267,11 +293,11 @@
               },
               {
                 "constant": false,
-                "id": 125,
+                "id": 47,
                 "name": "burnedCalories",
                 "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "254:19:2",
+                "scope": 54,
+                "src": "254:19:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -279,10 +305,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 124,
+                  "id": 46,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "254:4:2",
+                  "src": "254:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -293,11 +319,11 @@
               },
               {
                 "constant": false,
-                "id": 127,
+                "id": 49,
                 "name": "workoutTime",
                 "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "283:16:2",
+                "scope": 54,
+                "src": "283:16:1",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -305,10 +331,62 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 126,
+                  "id": 48,
                   "name": "uint",
                   "nodeType": "ElementaryTypeName",
-                  "src": "283:4:2",
+                  "src": "283:4:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 51,
+                "name": "imageHash",
+                "nodeType": "VariableDeclaration",
+                "scope": 54,
+                "src": "309:16:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 50,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "309:6:1",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 53,
+                "name": "timeStamp",
+                "nodeType": "VariableDeclaration",
+                "scope": 54,
+                "src": "335:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 52,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "335:4:1",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -320,52 +398,52 @@
             ],
             "name": "Workout",
             "nodeType": "StructDefinition",
-            "scope": 157,
-            "src": "184:122:2",
+            "scope": 89,
+            "src": "184:172:1",
             "visibility": "public"
           },
           {
             "body": {
-              "id": 131,
+              "id": 57,
               "nodeType": "Block",
-              "src": "333:2:2",
+              "src": "383:2:1",
               "statements": []
             },
             "documentation": null,
-            "id": 132,
+            "id": 58,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 129,
+              "id": 55,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "323:2:2"
+              "src": "373:2:1"
             },
             "returnParameters": {
-              "id": 130,
+              "id": 56,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "333:0:2"
+              "src": "383:0:1"
             },
-            "scope": 157,
-            "src": "312:23:2",
+            "scope": 89,
+            "src": "362:23:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           },
           {
             "body": {
-              "id": 155,
+              "id": 87,
               "nodeType": "Block",
-              "src": "470:190:2",
+              "src": "579:238:1",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 142,
+                    "id": 72,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -373,15 +451,15 @@
                     "nodeType": "UnaryOperation",
                     "operator": "++",
                     "prefix": false,
-                    "src": "480:14:2",
+                    "src": "589:14:1",
                     "subExpression": {
                       "argumentTypes": null,
-                      "id": 141,
+                      "id": 71,
                       "name": "workoutCount",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 115,
-                      "src": "480:12:2",
+                      "referencedDeclaration": 37,
+                      "src": "589:12:1",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -392,14 +470,14 @@
                       "typeString": "uint256"
                     }
                   },
-                  "id": 143,
+                  "id": 73,
                   "nodeType": "ExpressionStatement",
-                  "src": "480:14:2"
+                  "src": "589:14:1"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 153,
+                    "id": 85,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -408,26 +486,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 144,
+                        "id": 74,
                         "name": "workouts",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "504:8:2",
+                        "referencedDeclaration": 41,
+                        "src": "613:8:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
+                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$54_storage_$",
                           "typeString": "mapping(uint256 => struct WorkoutList.Workout storage ref)"
                         }
                       },
-                      "id": 146,
+                      "id": 76,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 145,
+                        "id": 75,
                         "name": "workoutCount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 115,
-                        "src": "513:12:2",
+                        "referencedDeclaration": 37,
+                        "src": "622:12:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -438,9 +516,9 @@
                       "isPure": false,
                       "lValueRequested": true,
                       "nodeType": "IndexAccess",
-                      "src": "504:22:2",
+                      "src": "613:22:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Workout_$128_storage",
+                        "typeIdentifier": "t_struct$_Workout_$54_storage",
                         "typeString": "struct WorkoutList.Workout storage ref"
                       }
                     },
@@ -451,12 +529,12 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 148,
+                          "id": 78,
                           "name": "workoutCount",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 115,
-                          "src": "550:12:2",
+                          "referencedDeclaration": 37,
+                          "src": "659:12:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -464,12 +542,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 149,
+                          "id": 79,
                           "name": "_workoutName",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 134,
-                          "src": "576:12:2",
+                          "referencedDeclaration": 60,
+                          "src": "685:12:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
                             "typeString": "string memory"
@@ -477,12 +555,12 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 150,
+                          "id": 80,
                           "name": "_burnedCalories",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 136,
-                          "src": "602:15:2",
+                          "referencedDeclaration": 62,
+                          "src": "711:15:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -490,12 +568,38 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 151,
+                          "id": 81,
                           "name": "_workoutTime",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 138,
-                          "src": "631:12:2",
+                          "referencedDeclaration": 64,
+                          "src": "740:12:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 82,
+                          "name": "_imageHash",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 66,
+                          "src": "766:10:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "id": 83,
+                          "name": "_timeStamp",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 68,
+                          "src": "790:10:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -519,20 +623,28 @@
                           {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_string_memory_ptr",
+                            "typeString": "string memory"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
                           }
                         ],
-                        "id": 147,
+                        "id": 77,
                         "name": "Workout",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 128,
-                        "src": "529:7:2",
+                        "referencedDeclaration": 54,
+                        "src": "638:7:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Workout_$128_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Workout_$54_storage_ptr_$",
                           "typeString": "type(struct WorkoutList.Workout storage pointer)"
                         }
                       },
-                      "id": 152,
+                      "id": 84,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -540,42 +652,42 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "529:124:2",
+                      "src": "638:172:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Workout_$128_memory",
+                        "typeIdentifier": "t_struct$_Workout_$54_memory",
                         "typeString": "struct WorkoutList.Workout memory"
                       }
                     },
-                    "src": "504:149:2",
+                    "src": "613:197:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Workout_$128_storage",
+                      "typeIdentifier": "t_struct$_Workout_$54_storage",
                       "typeString": "struct WorkoutList.Workout storage ref"
                     }
                   },
-                  "id": 154,
+                  "id": 86,
                   "nodeType": "ExpressionStatement",
-                  "src": "504:149:2"
+                  "src": "613:197:1"
                 }
               ]
             },
             "documentation": null,
-            "id": 156,
+            "id": 88,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "createWorkout",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 139,
+              "id": 69,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 134,
+                  "id": 60,
                   "name": "_workoutName",
                   "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "373:26:2",
+                  "scope": 88,
+                  "src": "423:26:1",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -583,10 +695,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 133,
+                    "id": 59,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "373:6:2",
+                    "src": "423:6:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -597,11 +709,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 136,
+                  "id": 62,
                   "name": "_burnedCalories",
                   "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "409:20:2",
+                  "scope": 88,
+                  "src": "459:20:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -609,10 +721,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 135,
+                    "id": 61,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "409:4:2",
+                    "src": "459:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -623,11 +735,11 @@
                 },
                 {
                   "constant": false,
-                  "id": 138,
+                  "id": 64,
                   "name": "_workoutTime",
                   "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "439:17:2",
+                  "scope": 88,
+                  "src": "489:17:1",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -635,10 +747,62 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 137,
+                    "id": 63,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "439:4:2",
+                    "src": "489:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 66,
+                  "name": "_imageHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "516:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 65,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "516:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 68,
+                  "name": "_timeStamp",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 88,
+                  "src": "550:15:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 67,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "550:4:1",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -648,631 +812,828 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "363:99:2"
+              "src": "413:158:1"
             },
             "returnParameters": {
-              "id": 140,
+              "id": 70,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "470:0:2"
+              "src": "579:0:1"
             },
-            "scope": 157,
-            "src": "341:319:2",
+            "scope": 89,
+            "src": "391:426:1",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 158,
-        "src": "76:586:2"
+        "scope": 90,
+        "src": "76:743:1"
       }
     ],
-    "src": "51:612:2"
+    "src": "51:769:1"
   },
   "legacyAST": {
-    "absolutePath": "/Users/mac/Documents/BlockChain/eth-todo-list/contracts/WorkoutList.sol",
-    "exportedSymbols": {
-      "WorkoutList": [
-        157
-      ]
+    "attributes": {
+      "absolutePath": "project:/contracts/WorkoutList.sol",
+      "exportedSymbols": {
+        "WorkoutList": [
+          89
+        ]
+      }
     },
-    "id": 158,
-    "nodeType": "SourceUnit",
-    "nodes": [
+    "children": [
       {
-        "id": 112,
-        "literals": [
-          "solidity",
-          "^",
-          "0.5",
-          ".0"
-        ],
-        "nodeType": "PragmaDirective",
-        "src": "51:23:2"
+        "attributes": {
+          "literals": [
+            "solidity",
+            "^",
+            "0.5",
+            ".0"
+          ]
+        },
+        "id": 34,
+        "name": "PragmaDirective",
+        "src": "51:23:1"
       },
       {
-        "baseContracts": [],
-        "contractDependencies": [],
-        "contractKind": "contract",
-        "documentation": null,
-        "fullyImplemented": true,
-        "id": 157,
-        "linearizedBaseContracts": [
-          157
-        ],
-        "name": "WorkoutList",
-        "nodeType": "ContractDefinition",
-        "nodes": [
+        "attributes": {
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            89
+          ],
+          "name": "WorkoutList",
+          "scope": 90
+        },
+        "children": [
           {
-            "constant": false,
-            "id": 115,
-            "name": "workoutCount",
-            "nodeType": "VariableDeclaration",
-            "scope": 157,
-            "src": "103:28:2",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_uint256",
-              "typeString": "uint256"
+            "attributes": {
+              "constant": false,
+              "name": "workoutCount",
+              "scope": 89,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "uint256",
+              "visibility": "public"
             },
-            "typeName": {
-              "id": 113,
-              "name": "uint",
-              "nodeType": "ElementaryTypeName",
-              "src": "103:4:2",
-              "typeDescriptions": {
-                "typeIdentifier": "t_uint256",
-                "typeString": "uint256"
-              }
-            },
-            "value": {
-              "argumentTypes": null,
-              "hexValue": "30",
-              "id": 114,
-              "isConstant": false,
-              "isLValue": false,
-              "isPure": true,
-              "kind": "number",
-              "lValueRequested": false,
-              "nodeType": "Literal",
-              "src": "130:1:2",
-              "subdenomination": null,
-              "typeDescriptions": {
-                "typeIdentifier": "t_rational_0_by_1",
-                "typeString": "int_const 0"
-              },
-              "value": "0"
-            },
-            "visibility": "public"
-          },
-          {
-            "constant": false,
-            "id": 119,
-            "name": "workouts",
-            "nodeType": "VariableDeclaration",
-            "scope": 157,
-            "src": "137:40:2",
-            "stateVariable": true,
-            "storageLocation": "default",
-            "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
-              "typeString": "mapping(uint256 => struct WorkoutList.Workout)"
-            },
-            "typeName": {
-              "id": 118,
-              "keyType": {
-                "id": 116,
-                "name": "uint",
-                "nodeType": "ElementaryTypeName",
-                "src": "145:4:2",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                }
-              },
-              "nodeType": "Mapping",
-              "src": "137:24:2",
-              "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
-                "typeString": "mapping(uint256 => struct WorkoutList.Workout)"
-              },
-              "valueType": {
-                "contractScope": null,
-                "id": 117,
-                "name": "Workout",
-                "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 128,
-                "src": "153:7:2",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Workout_$128_storage_ptr",
-                  "typeString": "struct WorkoutList.Workout"
-                }
-              }
-            },
-            "value": null,
-            "visibility": "public"
-          },
-          {
-            "canonicalName": "WorkoutList.Workout",
-            "id": 128,
-            "members": [
+            "children": [
               {
-                "constant": false,
-                "id": 121,
-                "name": "id",
-                "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "209:7:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 120,
+                "attributes": {
                   "name": "uint",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "209:4:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
+                  "type": "uint256"
                 },
-                "value": null,
-                "visibility": "internal"
+                "id": 35,
+                "name": "ElementaryTypeName",
+                "src": "103:4:1"
               },
               {
-                "constant": false,
-                "id": 123,
-                "name": "workoutName",
-                "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "226:18:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_string_storage_ptr",
-                  "typeString": "string"
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "30",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "number",
+                  "type": "int_const 0",
+                  "value": "0"
                 },
-                "typeName": {
-                  "id": 122,
-                  "name": "string",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "226:6:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_storage_ptr",
-                    "typeString": "string"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 125,
-                "name": "burnedCalories",
-                "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "254:19:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 124,
-                  "name": "uint",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "254:4:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
-              },
-              {
-                "constant": false,
-                "id": 127,
-                "name": "workoutTime",
-                "nodeType": "VariableDeclaration",
-                "scope": 128,
-                "src": "283:16:2",
-                "stateVariable": false,
-                "storageLocation": "default",
-                "typeDescriptions": {
-                  "typeIdentifier": "t_uint256",
-                  "typeString": "uint256"
-                },
-                "typeName": {
-                  "id": 126,
-                  "name": "uint",
-                  "nodeType": "ElementaryTypeName",
-                  "src": "283:4:2",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  }
-                },
-                "value": null,
-                "visibility": "internal"
+                "id": 36,
+                "name": "Literal",
+                "src": "130:1:1"
               }
             ],
-            "name": "Workout",
-            "nodeType": "StructDefinition",
-            "scope": 157,
-            "src": "184:122:2",
-            "visibility": "public"
+            "id": 37,
+            "name": "VariableDeclaration",
+            "src": "103:28:1"
           },
           {
-            "body": {
-              "id": 131,
-              "nodeType": "Block",
-              "src": "333:2:2",
-              "statements": []
+            "attributes": {
+              "constant": false,
+              "name": "workouts",
+              "scope": 89,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(uint256 => struct WorkoutList.Workout)",
+              "value": null,
+              "visibility": "public"
             },
-            "documentation": null,
-            "id": 132,
-            "implemented": true,
-            "kind": "constructor",
-            "modifiers": [],
-            "name": "",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 129,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "323:2:2"
-            },
-            "returnParameters": {
-              "id": 130,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "333:0:2"
-            },
-            "scope": 157,
-            "src": "312:23:2",
-            "stateMutability": "nonpayable",
-            "superFunction": null,
-            "visibility": "public"
-          },
-          {
-            "body": {
-              "id": 155,
-              "nodeType": "Block",
-              "src": "470:190:2",
-              "statements": [
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 142,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "nodeType": "UnaryOperation",
-                    "operator": "++",
-                    "prefix": false,
-                    "src": "480:14:2",
-                    "subExpression": {
-                      "argumentTypes": null,
-                      "id": 141,
-                      "name": "workoutCount",
-                      "nodeType": "Identifier",
-                      "overloadedDeclarations": [],
-                      "referencedDeclaration": 115,
-                      "src": "480:12:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_uint256",
-                        "typeString": "uint256"
-                      }
-                    },
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "id": 143,
-                  "nodeType": "ExpressionStatement",
-                  "src": "480:14:2"
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(uint256 => struct WorkoutList.Workout)"
                 },
-                {
-                  "expression": {
-                    "argumentTypes": null,
-                    "id": 153,
-                    "isConstant": false,
-                    "isLValue": false,
-                    "isPure": false,
-                    "lValueRequested": false,
-                    "leftHandSide": {
-                      "argumentTypes": null,
-                      "baseExpression": {
-                        "argumentTypes": null,
-                        "id": 144,
-                        "name": "workouts",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 119,
-                        "src": "504:8:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_uint256_$_t_struct$_Workout_$128_storage_$",
-                          "typeString": "mapping(uint256 => struct WorkoutList.Workout storage ref)"
-                        }
-                      },
-                      "id": 146,
-                      "indexExpression": {
-                        "argumentTypes": null,
-                        "id": 145,
-                        "name": "workoutCount",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 115,
-                        "src": "513:12:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_uint256",
-                          "typeString": "uint256"
-                        }
-                      },
-                      "isConstant": false,
-                      "isLValue": true,
-                      "isPure": false,
-                      "lValueRequested": true,
-                      "nodeType": "IndexAccess",
-                      "src": "504:22:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Workout_$128_storage",
-                        "typeString": "struct WorkoutList.Workout storage ref"
-                      }
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
                     },
-                    "nodeType": "Assignment",
-                    "operator": "=",
-                    "rightHandSide": {
-                      "argumentTypes": null,
-                      "arguments": [
-                        {
-                          "argumentTypes": null,
-                          "id": 148,
-                          "name": "workoutCount",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 115,
-                          "src": "550:12:2",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
+                    "id": 38,
+                    "name": "ElementaryTypeName",
+                    "src": "145:4:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Workout",
+                      "referencedDeclaration": 54,
+                      "type": "struct WorkoutList.Workout"
+                    },
+                    "id": 39,
+                    "name": "UserDefinedTypeName",
+                    "src": "153:7:1"
+                  }
+                ],
+                "id": 40,
+                "name": "Mapping",
+                "src": "137:24:1"
+              }
+            ],
+            "id": 41,
+            "name": "VariableDeclaration",
+            "src": "137:40:1"
+          },
+          {
+            "attributes": {
+              "canonicalName": "WorkoutList.Workout",
+              "name": "Workout",
+              "scope": 89,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "id",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 42,
+                    "name": "ElementaryTypeName",
+                    "src": "209:4:1"
+                  }
+                ],
+                "id": 43,
+                "name": "VariableDeclaration",
+                "src": "209:7:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "workoutName",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 44,
+                    "name": "ElementaryTypeName",
+                    "src": "226:6:1"
+                  }
+                ],
+                "id": 45,
+                "name": "VariableDeclaration",
+                "src": "226:18:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "burnedCalories",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 46,
+                    "name": "ElementaryTypeName",
+                    "src": "254:4:1"
+                  }
+                ],
+                "id": 47,
+                "name": "VariableDeclaration",
+                "src": "254:19:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "workoutTime",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 48,
+                    "name": "ElementaryTypeName",
+                    "src": "283:4:1"
+                  }
+                ],
+                "id": 49,
+                "name": "VariableDeclaration",
+                "src": "283:16:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "imageHash",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string"
+                    },
+                    "id": 50,
+                    "name": "ElementaryTypeName",
+                    "src": "309:6:1"
+                  }
+                ],
+                "id": 51,
+                "name": "VariableDeclaration",
+                "src": "309:16:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "timeStamp",
+                  "scope": 54,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "uint256",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "uint",
+                      "type": "uint256"
+                    },
+                    "id": 52,
+                    "name": "ElementaryTypeName",
+                    "src": "335:4:1"
+                  }
+                ],
+                "id": 53,
+                "name": "VariableDeclaration",
+                "src": "335:14:1"
+              }
+            ],
+            "id": 54,
+            "name": "StructDefinition",
+            "src": "184:172:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": true,
+              "kind": "constructor",
+              "modifiers": [
+                null
+              ],
+              "name": "",
+              "scope": 89,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 55,
+                "name": "ParameterList",
+                "src": "373:2:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 56,
+                "name": "ParameterList",
+                "src": "383:0:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 57,
+                "name": "Block",
+                "src": "383:2:1"
+              }
+            ],
+            "id": 58,
+            "name": "FunctionDefinition",
+            "src": "362:23:1"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "createWorkout",
+              "scope": 89,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_workoutName",
+                      "scope": 88,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
                         },
-                        {
-                          "argumentTypes": null,
-                          "id": 149,
-                          "name": "_workoutName",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 134,
-                          "src": "576:12:2",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_string_memory_ptr",
-                            "typeString": "string memory"
-                          }
+                        "id": 59,
+                        "name": "ElementaryTypeName",
+                        "src": "423:6:1"
+                      }
+                    ],
+                    "id": 60,
+                    "name": "VariableDeclaration",
+                    "src": "423:26:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_burnedCalories",
+                      "scope": 88,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
                         },
-                        {
-                          "argumentTypes": null,
-                          "id": 150,
-                          "name": "_burnedCalories",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 136,
-                          "src": "602:15:2",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
+                        "id": 61,
+                        "name": "ElementaryTypeName",
+                        "src": "459:4:1"
+                      }
+                    ],
+                    "id": 62,
+                    "name": "VariableDeclaration",
+                    "src": "459:20:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_workoutTime",
+                      "scope": 88,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
                         },
-                        {
+                        "id": 63,
+                        "name": "ElementaryTypeName",
+                        "src": "489:4:1"
+                      }
+                    ],
+                    "id": 64,
+                    "name": "VariableDeclaration",
+                    "src": "489:17:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_imageHash",
+                      "scope": 88,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 65,
+                        "name": "ElementaryTypeName",
+                        "src": "516:6:1"
+                      }
+                    ],
+                    "id": 66,
+                    "name": "VariableDeclaration",
+                    "src": "516:24:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_timeStamp",
+                      "scope": 88,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint",
+                          "type": "uint256"
+                        },
+                        "id": 67,
+                        "name": "ElementaryTypeName",
+                        "src": "550:4:1"
+                      }
+                    ],
+                    "id": 68,
+                    "name": "VariableDeclaration",
+                    "src": "550:15:1"
+                  }
+                ],
+                "id": 69,
+                "name": "ParameterList",
+                "src": "413:158:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 70,
+                "name": "ParameterList",
+                "src": "579:0:1"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
                           "argumentTypes": null,
-                          "id": 151,
-                          "name": "_workoutTime",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": 138,
-                          "src": "631:12:2",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          }
-                        }
-                      ],
-                      "expression": {
-                        "argumentTypes": [
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "++",
+                          "prefix": false,
+                          "type": "uint256"
+                        },
+                        "children": [
                           {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          {
-                            "typeIdentifier": "t_string_memory_ptr",
-                            "typeString": "string memory"
-                          },
-                          {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
-                          },
-                          {
-                            "typeIdentifier": "t_uint256",
-                            "typeString": "uint256"
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 37,
+                              "type": "uint256",
+                              "value": "workoutCount"
+                            },
+                            "id": 71,
+                            "name": "Identifier",
+                            "src": "589:12:1"
                           }
                         ],
-                        "id": 147,
-                        "name": "Workout",
-                        "nodeType": "Identifier",
-                        "overloadedDeclarations": [],
-                        "referencedDeclaration": 128,
-                        "src": "529:7:2",
-                        "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Workout_$128_storage_ptr_$",
-                          "typeString": "type(struct WorkoutList.Workout storage pointer)"
-                        }
-                      },
-                      "id": 152,
-                      "isConstant": false,
-                      "isLValue": false,
-                      "isPure": false,
-                      "kind": "structConstructorCall",
-                      "lValueRequested": false,
-                      "names": [],
-                      "nodeType": "FunctionCall",
-                      "src": "529:124:2",
-                      "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Workout_$128_memory",
-                        "typeString": "struct WorkoutList.Workout memory"
+                        "id": 72,
+                        "name": "UnaryOperation",
+                        "src": "589:14:1"
                       }
-                    },
-                    "src": "504:149:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Workout_$128_storage",
-                      "typeString": "struct WorkoutList.Workout storage ref"
-                    }
+                    ],
+                    "id": 73,
+                    "name": "ExpressionStatement",
+                    "src": "589:14:1"
                   },
-                  "id": 154,
-                  "nodeType": "ExpressionStatement",
-                  "src": "504:149:2"
-                }
-              ]
-            },
-            "documentation": null,
-            "id": 156,
-            "implemented": true,
-            "kind": "function",
-            "modifiers": [],
-            "name": "createWorkout",
-            "nodeType": "FunctionDefinition",
-            "parameters": {
-              "id": 139,
-              "nodeType": "ParameterList",
-              "parameters": [
-                {
-                  "constant": false,
-                  "id": 134,
-                  "name": "_workoutName",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "373:26:2",
-                  "stateVariable": false,
-                  "storageLocation": "memory",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_string_memory_ptr",
-                    "typeString": "string"
-                  },
-                  "typeName": {
-                    "id": 133,
-                    "name": "string",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "373:6:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_string_storage_ptr",
-                      "typeString": "string"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 136,
-                  "name": "_burnedCalories",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "409:20:2",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 135,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "409:4:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                },
-                {
-                  "constant": false,
-                  "id": 138,
-                  "name": "_workoutTime",
-                  "nodeType": "VariableDeclaration",
-                  "scope": 156,
-                  "src": "439:17:2",
-                  "stateVariable": false,
-                  "storageLocation": "default",
-                  "typeDescriptions": {
-                    "typeIdentifier": "t_uint256",
-                    "typeString": "uint256"
-                  },
-                  "typeName": {
-                    "id": 137,
-                    "name": "uint",
-                    "nodeType": "ElementaryTypeName",
-                    "src": "439:4:2",
-                    "typeDescriptions": {
-                      "typeIdentifier": "t_uint256",
-                      "typeString": "uint256"
-                    }
-                  },
-                  "value": null,
-                  "visibility": "internal"
-                }
-              ],
-              "src": "363:99:2"
-            },
-            "returnParameters": {
-              "id": 140,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "470:0:2"
-            },
-            "scope": 157,
-            "src": "341:319:2",
-            "stateMutability": "nonpayable",
-            "superFunction": null,
-            "visibility": "public"
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct WorkoutList.Workout storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "type": "struct WorkoutList.Workout storage ref"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 41,
+                                  "type": "mapping(uint256 => struct WorkoutList.Workout storage ref)",
+                                  "value": "workouts"
+                                },
+                                "id": 74,
+                                "name": "Identifier",
+                                "src": "613:8:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 37,
+                                  "type": "uint256",
+                                  "value": "workoutCount"
+                                },
+                                "id": 75,
+                                "name": "Identifier",
+                                "src": "622:12:1"
+                              }
+                            ],
+                            "id": 76,
+                            "name": "IndexAccess",
+                            "src": "613:22:1"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "type": "struct WorkoutList.Workout memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_string_memory_ptr",
+                                      "typeString": "string memory"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  ],
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 54,
+                                  "type": "type(struct WorkoutList.Workout storage pointer)",
+                                  "value": "Workout"
+                                },
+                                "id": 77,
+                                "name": "Identifier",
+                                "src": "638:7:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 37,
+                                  "type": "uint256",
+                                  "value": "workoutCount"
+                                },
+                                "id": 78,
+                                "name": "Identifier",
+                                "src": "659:12:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 60,
+                                  "type": "string memory",
+                                  "value": "_workoutName"
+                                },
+                                "id": 79,
+                                "name": "Identifier",
+                                "src": "685:12:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 62,
+                                  "type": "uint256",
+                                  "value": "_burnedCalories"
+                                },
+                                "id": 80,
+                                "name": "Identifier",
+                                "src": "711:15:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 64,
+                                  "type": "uint256",
+                                  "value": "_workoutTime"
+                                },
+                                "id": 81,
+                                "name": "Identifier",
+                                "src": "740:12:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 66,
+                                  "type": "string memory",
+                                  "value": "_imageHash"
+                                },
+                                "id": 82,
+                                "name": "Identifier",
+                                "src": "766:10:1"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 68,
+                                  "type": "uint256",
+                                  "value": "_timeStamp"
+                                },
+                                "id": 83,
+                                "name": "Identifier",
+                                "src": "790:10:1"
+                              }
+                            ],
+                            "id": 84,
+                            "name": "FunctionCall",
+                            "src": "638:172:1"
+                          }
+                        ],
+                        "id": 85,
+                        "name": "Assignment",
+                        "src": "613:197:1"
+                      }
+                    ],
+                    "id": 86,
+                    "name": "ExpressionStatement",
+                    "src": "613:197:1"
+                  }
+                ],
+                "id": 87,
+                "name": "Block",
+                "src": "579:238:1"
+              }
+            ],
+            "id": 88,
+            "name": "FunctionDefinition",
+            "src": "391:426:1"
           }
         ],
-        "scope": 158,
-        "src": "76:586:2"
+        "id": 89,
+        "name": "ContractDefinition",
+        "src": "76:743:1"
       }
     ],
-    "src": "51:612:2"
+    "id": 90,
+    "name": "SourceUnit",
+    "src": "51:769:1"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.5.0+commit.1d4f565a.Emscripten.clang"
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
   },
   "networks": {
     "5": {
       "events": {},
       "links": {},
-      "address": "0x0aE3152E85B071D19D8E777275D018C37BAa60B3",
-      "transactionHash": "0x449e1e36bfe278cf35bd1c8464864e72164150e16d116579859d211bde8c0970"
-    },
-    "1337": {
-      "events": {},
-      "links": {},
-      "address": "0xda5b5b01eb31fB7a1D96Ad5eC2AEBC2cFadbD338",
-      "transactionHash": "0x2649ea6089d690e2a098b09e5c3e18eecf6048cb97adfd18fa1758625c2538cb"
+      "address": "0x99cB78510AB0B17B850f20F2AB28e4052f6b4aEE",
+      "transactionHash": "0xca3db63fc6ba7476c31d412f38707cb2f49acaf4d26068febc24ceebfc0a960e"
     }
   },
-  "schemaVersion": "3.0.1",
-  "updatedAt": "2022-10-25T19:33:03.808Z",
+  "schemaVersion": "3.4.13",
+  "updatedAt": "2023-03-22T14:23:38.112Z",
+  "networkType": "ethereum",
   "devdoc": {
     "methods": {}
   },

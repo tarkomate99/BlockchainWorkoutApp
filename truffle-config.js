@@ -14,13 +14,13 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(
           process.env.MNEMONIC_KEY,
-          "https://goerli.infura.io/v3/" + process.env.INFURA_API_KEY
+          "https://eth-goerli.g.alchemy.com/v2/xcuYzS3vQPrzXZxNW1PdiG_H6hfPcSNK"
         );
       },
+      from: "0xf76a3e160574ba75D739d64E64Fdb1356b409016",
       network_id: 5,
-      networkCheckTimeout: 1000000,
+      networkCheckTimeout: 10000000,
       timeoutBlocks: 200,
-      gas: 4465030,
     },
   },
 

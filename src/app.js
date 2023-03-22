@@ -57,12 +57,14 @@ App = {
   loadContract: async () => {
     // Create a JavaScript version of the smart contract
 
+    /*
     const todoList = await $.getJSON("TodoList.json");
     App.contracts.TodoList = TruffleContract(todoList);
     App.contracts.TodoList.setProvider(App.web3Provider);
 
     // Hydrate the smart contract with values from the blockchain
     App.todoList = await App.contracts.TodoList.deployed();
+	*/
 
     const workoutList = await $.getJSON("WorkoutList.json");
     App.contracts.WorkoutList = TruffleContract(workoutList);
@@ -84,7 +86,7 @@ App = {
     $("#account").html(App.account);
 
     // Render Tasks
-    await App.renderTasks();
+    //await App.renderTasks();
     await App.renderWorkouts();
 
     // Update loading state
@@ -214,13 +216,26 @@ App = {
     $("#workoutMinLabel").show();
   },
 
-  createWorkout: async (workout, burnedCal, workoutMin) => {
+  createWorkout: async (
+    workout,
+    burnedCal,
+    workoutMin,
+    imageHash,
+    timeStamp
+  ) => {
     App.setLoading(true);
     const accounts = await web3.eth.getAccounts();
     App.account = accounts[0];
-    await App.workoutList.createWorkout(workout, burnedCal, workoutMin, {
-      from: App.account,
-    });
+    await App.workoutList.createWorkout(
+      workout,
+      burnedCal,
+      workoutMin,
+      imageHash,
+      timeStamp,
+      {
+        from: App.account,
+      }
+    );
     window.location.reload();
   },
 
@@ -265,6 +280,7 @@ App = {
 
 $(() => {
   $(window).load(() => {
+    var imgData;
     App.load();
     $("#workoutImage").trigger("click");
     $("#search").click(function () {
@@ -280,6 +296,19 @@ $(() => {
       const workName = $("#workName").val();
       const burnedCalorie = $("#burnedLabel").val();
       const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
+      const imageHash = imgData;
+      console.log(imageHash);
+      let date = new Date();
+      let yyyy = date.getFullYear();
+      let mm =
+        date.getMonth() > 0 && date.getMonth() < 9
+          ? "0" + date.getMonth()
+          : date.getMonth();
+      let dd = date.getDate();
+      let h = date.getHours();
+      let m = date.getMinutes();
+      let s = date.getSeconds();
+      let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m + ":" + s;
       console.log(
         workName,
         Math.ceil((burnedCalorie / 60) * workoutMin),
@@ -288,7 +317,9 @@ $(() => {
       App.createWorkout(
         workName,
         Math.ceil((burnedCalorie / 60) * workoutMin),
-        workoutMin
+        workoutMin,
+        imageHash,
+        curr_date
       );
     });
     $("#calculate").click(function () {
@@ -313,7 +344,8 @@ $(() => {
       var reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onloadend = function () {
-        console.log(reader.result);
+        //console.log("BASE64_RESULT: " + reader.result);
+        return reader.result;
       };
       reader.onerror = function (error) {
         console.log("Error: ", error);
@@ -322,6 +354,7 @@ $(() => {
     document.getElementById("workoutImage").onchange = function () {
       console.log(this.files[0]);
       getBase64(this.files[0]);
+      imgData = getBase64(this.files[0]);
     };
   });
 });
