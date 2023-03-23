@@ -153,9 +153,16 @@
 				  />
 				</div>
 			  </div>
-			  <button id="sendBtn" style="display: none">
-				Send
-			  </button>
+			  <div class="row">
+				<input type="file" id="workoutImage" class="local" accept="image/png, image/jpg" style="display: none" onchange="uploadIPFS(this.files[0])">
+				<input
+              id="sendBtn"
+              type="button"
+              value="Send"
+              class="form-control btn-success mt-1"
+              style="display: none"
+            />
+			</div>
 			</div>
 		  </div>
 	</div>
