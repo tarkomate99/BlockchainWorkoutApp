@@ -1,5 +1,6 @@
 // connect to metamask
 let account;
+let imgBase64;
 
 const connectMetamask = async () => {
   if (window.ethereum !== "undefined") {
@@ -19,6 +20,7 @@ const connectContract = async () => {
       name: "workoutCount",
       outputs: [
         {
+          internalType: "uint256",
           name: "",
           type: "uint256",
         },
@@ -26,12 +28,12 @@ const connectContract = async () => {
       payable: false,
       stateMutability: "view",
       type: "function",
-      signature: "0x35422e0f",
     },
     {
       constant: true,
       inputs: [
         {
+          internalType: "uint256",
           name: "",
           type: "uint256",
         },
@@ -39,47 +41,66 @@ const connectContract = async () => {
       name: "workouts",
       outputs: [
         {
+          internalType: "uint256",
           name: "id",
           type: "uint256",
         },
         {
+          internalType: "string",
           name: "workoutName",
           type: "string",
         },
         {
+          internalType: "uint256",
           name: "burnedCalories",
           type: "uint256",
         },
         {
+          internalType: "uint256",
           name: "workoutTime",
+          type: "uint256",
+        },
+        {
+          internalType: "string",
+          name: "imageHash",
+          type: "string",
+        },
+        {
+          internalType: "uint256",
+          name: "timeStamp",
           type: "uint256",
         },
       ],
       payable: false,
       stateMutability: "view",
       type: "function",
-      signature: "0xcd56ec31",
-    },
-    {
-      inputs: [],
-      payable: false,
-      stateMutability: "nonpayable",
-      type: "constructor",
-      signature: "constructor",
     },
     {
       constant: false,
       inputs: [
         {
+          internalType: "string",
           name: "_workoutName",
           type: "string",
         },
         {
+          internalType: "uint256",
           name: "_burnedCalories",
           type: "uint256",
         },
         {
+          internalType: "uint256",
           name: "_workoutTime",
+          type: "uint256",
+        },
+        {
+          internalType: "string",
+          name: "_imageHash",
+          type: "string",
+        },
+        {
+          internalType: "uint256",
+          name: "_timeStamp",
           type: "uint256",
         },
       ],
@@ -88,7 +109,6 @@ const connectContract = async () => {
       payable: false,
       stateMutability: "nonpayable",
       type: "function",
-      signature: "0x2fe542ef",
     },
   ];
   const Address = "0x0aE3152E85B071D19D8E777275D018C37BAa60B3";
@@ -189,32 +209,48 @@ async function send() {
   const workName = $("#workName").val();
   const burnedCalorie = $("#burnedLabel").val();
   const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
+  const imageHash =
+    "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png";
+  console.log(imageHash);
+  let date = new Date();
+  let yyyy = date.getFullYear();
+  let mm =
+    date.getMonth() > 0 && date.getMonth() < 9
+      ? "0" + date.getMonth()
+      : date.getMonth();
+  let dd = date.getDate();
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+  let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m + ":" + s;
   console.log(
     workName,
     Math.ceil((burnedCalorie / 60) * workoutMin),
-    workoutMin
+    workoutMin,
+    imageHash,
+    curr_date
   );
   await window.contract.methods.createWorkout(
     workName,
     Math.ceil((burnedCalorie / 60) * workoutMin),
-    workoutMin
+    workoutMin,
+    imageHash,
+    curr_date
   );
 }
 
-function uploadIPFS(file) {
-  /*
-	const ipfs = new IPFS({
-	  host: "ipfs.infura.io",
-	  port: 3000,
-	  protocol: "https",
-	});
-	const data = "imageUrl";
-	ipfs.add(data, (err, hash) => {
-	  if (err) {
-		return console.log(err);
-	  }
-	  console.log("https://ipfs.infura.io/ipfs/" + hash);
-	});
-	*/
-  console.log(file);
+function getBase64(file) {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+  reader.onloadend = function () {
+    console.log("BASE64_RESULT: " + reader.result);
+    imgBase64 = reader.result;
+  };
+  reader.onerror = function (error) {
+    console.log("Error: ", error);
+  };
 }
+
+window.onload = (event) => {
+  console.log("page is fully loaded");
+};

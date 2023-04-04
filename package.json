@@ -24,8 +24,13 @@
   },
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.0",
+    "buffer": "^6.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "ipfs": "^0.66.0",
+    "ipfs-core": "^0.18.0",
+    "ipfs-http-client": "^60.0.0",
+    "ipfs-mini": "^1.1.5",
     "truffle-hdwallet-provider": "^1.0.17"
   }
 }
