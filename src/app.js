@@ -296,7 +296,7 @@ $(() => {
       const workName = $("#workName").val();
       const burnedCalorie = $("#burnedLabel").val();
       const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
-      const imageHash = imgData;
+      const imageHash = "i8aqCm";
       console.log(imageHash);
       let date = new Date();
       let yyyy = date.getFullYear();
