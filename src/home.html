@@ -177,7 +177,7 @@
 				</div>
 			  </div>
 			  <div class="row">
-				<input type="file" id="workoutImage" class="local" accept="image/png, image/jpg">
+				<input type="file" id="workoutImage" class="local" accept="image/png, image/jpg" onchange="getBase64(this.files[0])">
 				<button type="button" onclick="upload()">Upload</button>
 				<input
               id="sendBtn"
@@ -185,6 +185,7 @@
               value="Send"
               class="form-control btn-success mt-1"
               style="display: none"
+			  onclick="send()"
             />
 			</div>
 			</div>

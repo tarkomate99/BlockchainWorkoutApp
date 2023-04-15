@@ -209,8 +209,7 @@ async function send() {
   const workName = $("#workName").val();
   const burnedCalorie = $("#burnedLabel").val();
   const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
-  const imageHash =
-    "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes-thumbnail.png";
+  const imageHash = imgBase64;
   console.log(imageHash);
   let date = new Date();
   let yyyy = date.getFullYear();
@@ -250,7 +249,3 @@ function getBase64(file) {
     console.log("Error: ", error);
   };
 }
-
-window.onload = (event) => {
-  console.log("page is fully loaded");
-};
