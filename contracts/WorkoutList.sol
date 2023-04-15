@@ -10,7 +10,6 @@ contract WorkoutList {
         string workoutName;
         uint burnedCalories;
         uint workoutTime;
-        string imageHash;
         uint timeStamp;
     }
 
@@ -20,7 +19,6 @@ contract WorkoutList {
         string memory _workoutName,
         uint _burnedCalories,
         uint _workoutTime,
-        string memory _imageHash,
         uint _timeStamp
     ) public {
         workoutCount++;
@@ -29,7 +27,6 @@ contract WorkoutList {
             _workoutName,
             _burnedCalories,
             _workoutTime,
-            _imageHash,
             _timeStamp
         );
     }

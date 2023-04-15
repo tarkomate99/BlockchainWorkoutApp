@@ -104,7 +104,6 @@
                     class="kcal"
                     style="background-color: rgb(0, 187, 255)"
                   ></span>
-				  <span><img class="workoutImg" src="" alt="workoutPhoto"></span>
 				  <span class="workoutTimestamp"></span>
                 </label>
               </div>
@@ -139,7 +138,6 @@
               </div>
             </div>
 			<div class="row">
-				<input type="file" id="workoutImage" class="local" accept="image/png, image/jpg" style="display: none">
 				<input
               id="sendBtn"
               type="button"
@@ -157,11 +155,54 @@
         <div class="col-lg-12 d-flex justify-content-right">
           <div class="ml-auto">
             <h3>BMI calculator</h3>
-            <div class="container">
+            <div class="container" id="calorieCalc">
               <div class="row">
-                <label> Age <input type="text" id="age" /></label>
+                <label> Age <input type="text" id="age" required/></label>
               </div>
               <div class="row">
+                <label class="mr-2">Gender</label>
+                <label for="male" class="mr-3" name="gender"
+                  ><input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="Male"
+                    class="mr-2"
+					required
+                  />Male</label
+                >
+                <label for="female"
+                  ><input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="Female"
+                    class="mr-2"
+					required
+                  />Female</label
+                >
+              </div>
+              <div class="row">
+                <label
+                  >Height <input type="text" id="height" placeholder="cm" required
+                /></label>
+              </div>
+              <div class="row">
+                <label
+                  >Weight <input type="text" id="weight" placeholder="kg" required
+                /></label>
+              </div>
+              <div class="row justify-content-center">
+                <button class="btn btn-success" id="calculate">
+                  Calculate
+                </button>
+              </div>
+              <div class="row justify-content-center">
+                <span id="bmi" style="display: none; color: green">smth</span>
+              </div>
+
+			  <h3>Calorie calculator</h3>
+			  <div class="row">
                 <label class="mr-2">Gender</label>
                 <label for="male" class="mr-3"
                   ><input
@@ -182,23 +223,37 @@
                   />Female</label
                 >
               </div>
-              <div class="row">
+			  <div class="row">
                 <label
-                  >Height <input type="text" id="height" placeholder="cm"
+                  >Height <input type="text" id="height2" placeholder="cm" required
                 /></label>
               </div>
               <div class="row">
                 <label
-                  >Weight <input type="text" id="weight" placeholder="kg"
+                  >Weight <input type="text" id="weight2" placeholder="kg" required
                 /></label>
               </div>
-              <div class="row justify-content-center">
-                <button class="btn btn-success" id="calculate">
+			  <div class="row">
+                <label> Age <input type="text" id="age2" required/></label>
+              </div>
+			  <div class="row">
+				<label> Activity 
+					<select name="activity" id="activity" >
+						<option value="1.2">zero activity (ülőmunka, nincs edzés/minimális mozgás)</option>
+						<option value="1.375">light activity (1-3 könnyed edzés egy héten)</option>
+						<option value="1.55">moderate activity (3-5 moderált edzés egy héten)</option>
+						<option value="1.725">high degree activity (6-7 kemény edzés egy héten)</option>
+						<option value="1.9">extra activity (nagyon kemény edzések, plusz fizikai munka)</option>
+					</select>
+				</label>
+			  </div>
+			  <div class="row justify-content-center">
+                <button class="btn btn-success" id="calcCalorie">
                   Calculate
                 </button>
               </div>
               <div class="row justify-content-center">
-                <span id="bmi" style="display: none; color: green">smth</span>
+                <span id="rmr" style="display: none; color: green">smth</span>
               </div>
             </div>
           </div>

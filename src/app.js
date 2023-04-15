@@ -159,36 +159,31 @@ App = {
       const workoutName = workout[1];
       const burnedCal = workout[2].toNumber();
       const workoutTime = workout[3].toNumber();
+      const workoutTimeStamp = workout[4].toNumber();
+      var date = new Date(workoutTimeStamp);
+      let yyyy = date.getFullYear();
+      let mm =
+        date.getMonth() > 0 && date.getMonth() < 9
+          ? "0" + date.getMonth()
+          : date.getMonth();
+      let dd = date.getDate();
+      let h = date.getHours();
+      let m =
+        date.getMinutes() > 0 && date.getMinutes() < 9
+          ? "0" + date.getMinutes()
+          : date.getMinutes();
+      let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m;
       const $newTrainTemplate = $workoutTemplate.clone();
       $newTrainTemplate.find(".content").html(workoutName);
       $newTrainTemplate.find(".kcal").html(burnedCal + " kcal");
       $newTrainTemplate.find(".workoutTime").html(workoutTime + " minute");
-      $newTrainTemplate.find(".workoutImg").src = "";
       $newTrainTemplate
         .find(".workoutTimestamp")
-        .html(new Date().toLocaleString());
+        .html(curr_date.toLocaleString());
       $("#trainList").append($newTrainTemplate);
 
       $newTrainTemplate.show();
     }
-  },
-
-  createTask: async () => {
-    App.setLoading(true);
-    const accounts = await web3.eth.getAccounts();
-    App.account = accounts[0];
-    const content = $("#newTask").val();
-    await App.todoList.createTask(content, { from: App.account });
-    window.location.reload();
-  },
-
-  toggleCompleted: async (e) => {
-    App.setLoading(true);
-    const accounts = await web3.eth.getAccounts();
-    App.account = accounts[0];
-    const taskId = e.target.name;
-    await App.todoList.toggleCompleted(taskId, { from: App.account });
-    window.location.reload();
   },
 
   setLoading: (boolean) => {
@@ -212,17 +207,10 @@ App = {
     $("#burnedLabel").val(e.target.kcal);
     $("#sendBtn").show();
     $("#workName").show();
-    $("#workoutImage").show();
     $("#workoutMinLabel").show();
   },
 
-  createWorkout: async (
-    workout,
-    burnedCal,
-    workoutMin,
-    imageHash,
-    timeStamp
-  ) => {
+  createWorkout: async (workout, burnedCal, workoutMin, timeStamp) => {
     App.setLoading(true);
     const accounts = await web3.eth.getAccounts();
     App.account = accounts[0];
@@ -230,7 +218,6 @@ App = {
       workout,
       burnedCal,
       workoutMin,
-      imageHash,
       timeStamp,
       {
         from: App.account,
@@ -282,7 +269,6 @@ $(() => {
   $(window).load(() => {
     var imgData;
     App.load();
-    $("#workoutImage").trigger("click");
     $("#search").click(function () {
       App.resetSearchBar();
       const train = $("#newTask").val();
@@ -308,18 +294,19 @@ $(() => {
       let h = date.getHours();
       let m = date.getMinutes();
       let s = date.getSeconds();
-      let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m + ":" + s;
+      let curr_date = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m;
+      let workDate = Date.now(curr_date);
       console.log(
         workName,
         Math.ceil((burnedCalorie / 60) * workoutMin),
-        workoutMin
+        workoutMin,
+        workDate.toLocaleString()
       );
       App.createWorkout(
         workName,
         Math.ceil((burnedCalorie / 60) * workoutMin),
         workoutMin,
-        imageHash,
-        curr_date
+        workDate
       );
     });
     $("#calculate").click(function () {
@@ -340,21 +327,30 @@ $(() => {
       $("#bmi").text(BMI.toFixed(3) + " " + bmi_weight);
       $("#bmi").show();
     });
-    function getBase64(file) {
-      var reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onloadend = function () {
-        //console.log("BASE64_RESULT: " + reader.result);
-        return reader.result;
-      };
-      reader.onerror = function (error) {
-        console.log("Error: ", error);
-      };
-    }
-    document.getElementById("workoutImage").onchange = function () {
-      console.log(this.files[0]);
-      getBase64(this.files[0]);
-      imgData = getBase64(this.files[0]);
-    };
+    $("#calcCalorie").click(function () {
+      var gender = "";
+      var selected = $("#calorieCalc input[type=radio][name='gender']:checked");
+      var height = $("#height2").val();
+      var weight = $("#weight2").val();
+      var age = $("#age2").val();
+      var activity = $("#activity").val();
+      if (selected.length > 0) {
+        gender = selected.val();
+      }
+      if (gender == "Male") {
+        var rmr =
+          (height * 10 + parseFloat(weight) * 6.25 - age * 5 + 5) * activity;
+        console.log(rmr);
+        $("#rmr").text(rmr.toFixed(1) + " kcal");
+        $("#rmr").show();
+      }
+      if (gender == "Female") {
+        var rmr =
+          (height * 10 + parseFloat(weight) * 6.25 - age * 5 + 5) * activity;
+        console.log(rmr);
+        $("#rmr").text(rmr.toFixed(1) + " kcal");
+        $("#rmr").show();
+      }
+    });
   });
 });
