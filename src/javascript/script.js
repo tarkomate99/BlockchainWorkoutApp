@@ -13,7 +13,14 @@ const connectMetamask = async () => {
 };
 // connect to smart contract
 const connectContract = async () => {
-  const ABI = [
+  let address = "0xBe4f715A92c3FEf4C1D36481d3E9ea904Bd3a910";
+  let abi = [
+    {
+      inputs: [],
+      payable: false,
+      stateMutability: "nonpayable",
+      type: "constructor",
+    },
     {
       constant: true,
       inputs: [],
@@ -61,11 +68,6 @@ const connectContract = async () => {
           type: "uint256",
         },
         {
-          internalType: "string",
-          name: "imageHash",
-          type: "string",
-        },
-        {
           internalType: "uint256",
           name: "timeStamp",
           type: "uint256",
@@ -94,11 +96,6 @@ const connectContract = async () => {
           type: "uint256",
         },
         {
-          internalType: "string",
-          name: "_imageHash",
-          type: "string",
-        },
-        {
           internalType: "uint256",
           name: "_timeStamp",
           type: "uint256",
@@ -111,9 +108,8 @@ const connectContract = async () => {
       type: "function",
     },
   ];
-  const Address = "0x0aE3152E85B071D19D8E777275D018C37BAa60B3";
   window.web3 = await new Web3(window.ethereum);
-  window.contract = await new window.web3.eth.Contract(ABI, Address);
+  window.contract = await new window.web3.eth.Contract(abi, address);
   document.getElementById("contractArea").innerHTML =
     "connected to smart contract";
 };
@@ -233,7 +229,6 @@ async function send() {
     workName,
     Math.ceil((burnedCalorie / 60) * workoutMin),
     workoutMin,
-    imageHash,
     curr_date
   );
 }
