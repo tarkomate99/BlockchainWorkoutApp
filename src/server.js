@@ -27,7 +27,7 @@ app.get("/javascript/script.js", (req, res) => {
 });
 
 app.get("/getWorkouts", async (req, res) => {
-  let address = "0xBe4f715A92c3FEf4C1D36481d3E9ea904Bd3a910";
+  let address = "0x3160eC2684799E415FBCfDba222A09E64c7958e1";
   let jsonFile = readFileSync("./build/contracts/WorkoutList.json").toString();
   let fileObject = JSON.parse(jsonFile);
   let abi = fileObject.abi;
@@ -39,7 +39,24 @@ app.get("/getWorkouts", async (req, res) => {
   var contract = await new web3.eth.Contract(abi, address);
   const workoutCount = await contract.methods.workoutCount().call();
   console.log(workoutCount);
-  res.send(`WorkoutCount: ${workoutCount}`);
+  var workoutArray = [];
+  for (let i = 1; i <= workoutCount; i++) {
+    const workout = await contract.methods.workouts(i).call();
+    const workoutName = workout[1];
+    const burnedCal = workout[2];
+    const workoutTime = workout[3];
+    const workoutTimeStamp = workout[4];
+    console.log(
+      `${workoutName}, ${burnedCal}, ${workoutTime}, ${workoutTimeStamp}`
+    );
+    workoutArray.push({
+      workoutName: workoutName,
+      burnedCal: burnedCal,
+      workoutTime: workoutTime,
+      workoutTimeStamp: workoutTimeStamp,
+    });
+  }
+  res.send(JSON.stringify(workoutArray));
 });
 
 const server = app.listen(3000);
