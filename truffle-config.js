@@ -19,7 +19,7 @@ module.exports = {
       },
       from: "0xf76a3e160574ba75D739d64E64Fdb1356b409016",
       network_id: 5,
-      networkCheckTimeout: 1000000,
+      networkCheckTimeout: 10000000,
       timeoutBlocks: 200,
     },
   },
