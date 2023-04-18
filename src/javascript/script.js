@@ -11,9 +11,9 @@ const connectMetamask = async () => {
     document.getElementById("account").innerHTML = account;
   }
 };
-// connect to smart contract
+
 const connectContract = async () => {
-  let address = "0xBe4f715A92c3FEf4C1D36481d3E9ea904Bd3a910";
+  let address = "0x3160eC2684799E415FBCfDba222A09E64c7958e1";
   let abi = [
     {
       inputs: [],
@@ -115,6 +115,7 @@ const connectContract = async () => {
 };
 
 const readContract = async () => {
+  /*
   const workoutCount = await window.contract.methods.workoutCount().call();
   const $workoutTemplate = $(".trainTemplate");
   for (let i = 1; i <= workoutCount; i++) {
@@ -130,6 +131,50 @@ const readContract = async () => {
 
     $newTrainTemplate.show();
   }
+  */
+  const $workoutTemplate = $(".trainTemplate");
+  const xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:3000/getWorkouts", true);
+  xhttp.responseType = "text";
+
+  xhttp.onload = () => {
+    if (xhttp.readyState === xhttp.DONE) {
+      if (xhttp.status === 200) {
+        var workouts = JSON.parse(xhttp.response);
+        for (let workout of workouts) {
+          var date = new Date(Number(workout.workoutTimeStamp));
+          let yyyy = date.getFullYear();
+          let mm =
+            date.getMonth() > 0 && date.getMonth() < 9
+              ? "0" + date.getMonth()
+              : date.getMonth();
+          let dd = date.getDate();
+          let h = date.getHours();
+          let m =
+            date.getMinutes() > 0 && date.getMinutes() < 9
+              ? "0" + date.getMinutes()
+              : date.getMinutes();
+          let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m;
+          const $newTrainTemplate = $workoutTemplate.clone();
+          $newTrainTemplate.find(".content").html(workout.workoutName);
+          $newTrainTemplate.find(".kcal").html(workout.burnedCal + " kcal");
+          $newTrainTemplate
+            .find(".workoutTime")
+            .html(workout.workoutTime + " minute");
+          $newTrainTemplate
+            .find(".workoutTimestamp")
+            .html(curr_date.toLocaleString());
+          $("#trainList").append($newTrainTemplate);
+          $newTrainTemplate.show();
+        }
+      }
+    }
+  };
+
+  xhttp.send();
+
+  //const workouts = JSON.parse(xhttp.response.json);
+  //console.log(xhttp.responseText);
 };
 const getTrainningTypes = async (e) => {
   resetSearchBar();
@@ -150,7 +195,6 @@ const getTrainningTypes = async (e) => {
     let myJson = await api.json();
     const $trainTemplate = $(".searchTrainTemplate");
     for (let training of myJson) {
-      console.log(training);
       const $newTrainTemplate = $trainTemplate.clone();
       $newTrainTemplate.find(".content").html(training.name);
       $newTrainTemplate
@@ -202,6 +246,7 @@ function toggleClicked(e) {
   $("#workoutMinLabel").show();
 }
 async function send() {
+  /*
   const workName = $("#workName").val();
   const burnedCalorie = $("#burnedLabel").val();
   const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
@@ -231,16 +276,40 @@ async function send() {
     workoutMin,
     curr_date
   );
-}
-
-function getBase64(file) {
-  var reader = new FileReader();
-  reader.readAsDataURL(file);
-  reader.onloadend = function () {
-    console.log("BASE64_RESULT: " + reader.result);
-    imgBase64 = reader.result;
-  };
-  reader.onerror = function (error) {
-    console.log("Error: ", error);
-  };
+  */
+  const workName = $("#workName").val();
+  const burnedCalorie = $("#burnedLabel").val();
+  const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
+  let date = new Date();
+  let yyyy = date.getFullYear();
+  let mm =
+    date.getMonth() > 0 && date.getMonth() < 9
+      ? "0" + date.getMonth()
+      : date.getMonth();
+  let dd = date.getDate();
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let s = date.getSeconds();
+  let curr_date = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m;
+  let workDate = Date.now(curr_date);
+  var xmlhttp = new window.XMLHttpRequest();
+  xmlhttp.open("POST", "/addWorkout", true);
+  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xmlhttp.send(
+    JSON.stringify({
+      workoutName: workName,
+      burnedCal: burnedCalorie,
+      workoutTime: workoutMin,
+      workoutTimeStamp: workDate,
+      account: account,
+    })
+  );
+  await window.contract.methods
+    .createWorkout(
+      workName,
+      Math.ceil((burnedCalorie / 60) * workoutMin),
+      workoutMin,
+      workDate
+    )
+    .send({ from: account });
 }

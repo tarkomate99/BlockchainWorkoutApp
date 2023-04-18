@@ -11,29 +11,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script src="https://cdn.jsdelivr.net/npm/web3@1.3.3/dist/web3.min.js"></script>
-	<script src="https://unpkg.com/ipfs-api@9.0.0/dist/index.js"
-    integrity="sha384-5bXRcW9kyxxnSMbOoHzraqa7Z0PQWIao+cgeg327zit1hz5LZCEbIMx/LWKPReuB"
-    crossorigin="anonymous"></script>
-	<script>
-		function upload(){
-			const reader = new FileReader();
-			reader.onloadend = function(){
-				const ipfs = window.IpfsApi('localhost', 5001);
-				const buf = buffer.Buffer(reader.result);
-
-				ipfs.files.add(buf, (err,result) => {
-					if(err){
-						console.log(err)
-						return
-					}
-					let url = `https://ipfs.io/ipfs/${result[0].hash}`
-
-				})
-			}
-			const photo = document.getElementById("workoutImage");
-      		reader.readAsArrayBuffer(photo.files[0]); 
-		}
-	</script>
     <style>
       body {
         background-color: gray;
@@ -177,8 +154,6 @@
 				</div>
 			  </div>
 			  <div class="row">
-				<input type="file" id="workoutImage" class="local" accept="image/png, image/jpg" onchange="getBase64(this.files[0])">
-				<button type="button" onclick="upload()">Upload</button>
 				<input
               id="sendBtn"
               type="button"
@@ -205,6 +180,7 @@
 			  class="kcal"
 			  style="background-color: rgb(0, 187, 255)"
 			></span>
+			<span class="workoutTimestamp"></span>
 		  </label>
 		</div>
 	  </ul>
