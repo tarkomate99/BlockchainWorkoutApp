@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Blockchain Workout App</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.3.3/dist/web3.min.js"></script>
+	<style>
+		body {
+			background-color: gray;
+			text-align: center;
+		}
+
+		button {
+			background-color: aquamarine;
+			font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+		}
+
+		button:hover {
+			background-color: yellow;
+		}
+
+		main {
+			margin-top: 60px;
+		}
+
+		#searchTraining {
+			position: absolute;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		form {
+			width: 350px;
+			margin-bottom: 10px;
+		}
+
+		ul {
+			margin-bottom: 0px;
+		}
+
+		#completedTaskList .content {
+			color: grey;
+			text-decoration: line-through;
+		}
+
+		#searchList {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#searchList div label {
+			border: 1px solid #ddd;
+			margin-top: -1px;
+			background-color: #f6f6f6;
+			padding: 12px;
+			color: black;
+			display: block;
+		}
+
+		#searchList div label:hover:not(.header) {
+			background-color: #eee;
+		}
+
+		#height::placeholder {
+			text-align: right;
+		}
+
+		#weight::placeholder {
+			text-align: right;
+		}
+
+		#activity {
+			width: 180px;
+		}
+
+		.error {
+			color: red;
+			font-size: 15px;
+		}
+
+		#ageError {
+			display: none;
+		}
+
+		#weightError {
+			display: none;
+		}
+
+		#heightError {
+			display: none;
+		}
+
+		#ageError2 {
+			display: none;
+		}
+
+		#weightError2 {
+			display: none;
+		}
+
+		#heightError2 {
+			display: none;
+		}
+
+		#genderError2 {
+			display: none;
+		}
+
+		a:link {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:visited {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:hover {
+			text-decoration: none;
+			color: black;
+		}
+
+		a:active {
+			text-decoration: none;
+			color: black;
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="" target="_self">Blockchain Workout App</a>
+		</button>
+		<ul class="navbar-nav px-3">
+			<li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+				<button><a href="/listWorkouts">List Workouts</a></button>
+				<button class="nav-item"><a href="/bmi">BMI Calculator</a></button>
+				<button>Calorie Calculator</button>	
+			</li>
+		</ul>
+	</nav>
+	<div class="container" id="calorieCalc" style="margin-top: 10%">
+		<div class="row justify-content-md-center">
+			<div class="row">
+				<h3>Calorie Calculator</h3>
+			</div>
+		</div>
+		<div class="row">
+			<label class="col">Age <input type="text" id="age2"></label>
+		</div>
+		<div class="row">
+			<span class="col error" id="ageError2">Add meg az életkorod!</span>
+		</div>
+		<div class="row">
+			<label class="col"> Gender <label for="male1" class="mr-3" name="gender"><input type="radio" id="male"
+						name="gender" value="Male" class="mr-2" required />Male</label>
+				<label for="female1"><input type="radio" id="female" name="gender" value="Female" class="mr-2"
+						required />Female </label>
+			</label>
+		</div>
+		<div class="row">
+			<span class="col error" id="genderError2">Válaszd ki a nemed!</span>
+		</div>
+		<div class="row">
+			<label class="col">
+				Height <input type="text" id="height2" placeholder="cm">
+			</label>
+		</div>
+		<div class="row">
+			<span class="col error" id="heightError2">Add meg a magasságod!</span>
+		</div>
+		<div class="row">
+			<label class="col">
+				Weight <input type="text" id="weight2" placeholder="kg">
+			</label>
+		</div>
+		<div class="row">
+			<span class="col error" id="weightError2">Add meg a testsúlyod!!</span>
+		</div>
+		<div class="row">
+			<label class="col"> Activity 
+				<select name="activity" id="activity" >
+					<option value="1.2">zero activity (ülőmunka, nincs edzés/minimális mozgás)</option>
+					<option value="1.375">light activity (1-3 könnyed edzés egy héten)</option>
+					<option value="1.55">moderate activity (3-5 moderált edzés egy héten)</option>
+					<option value="1.725">high degree activity (6-7 kemény edzés egy héten)</option>
+					<option value="1.9">extra activity (nagyon kemény edzések, plusz fizikai munka)</option>
+				</select>
+			</label>
+		  </div>
+		<div class="row">
+			<div class="col"></div>
+			<button class="col btn btn-success" id="calculate" onclick="calculateCalorie()" style="width: 50%;">Calculate</button>
+			<div class="col"></div>
+		</div>
+		<div class="row">
+			<span class="col" id="rmr" style="display: none; color: green">smth</span>
+		</div>
+	</div>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+		integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+		integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="./javascript/calorie.js"></script>
+</body>
+
+</html>

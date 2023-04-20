@@ -14,7 +14,7 @@ module.exports = {
       provider: () => {
         return new HDWalletProvider(
           process.env.MNEMONIC_KEY,
-          "https://eth-goerli.g.alchemy.com/v2/xcuYzS3vQPrzXZxNW1PdiG_H6hfPcSNK"
+          "https://eth-goerli.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY
         );
       },
       from: "0xf76a3e160574ba75D739d64E64Fdb1356b409016",

@@ -1,193 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blockchain Workout App</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.3/dist/web3.min.js"></script>
-    <style>
-      body {
-        background-color: gray;
-        text-align: center;
-      }
-      button {
-        background-color: aquamarine;
-        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-      }
-      button:hover {
-        background-color: yellow;
-      }
-      main {
-        margin-top: 60px;
-      }
 
-    #searchTraining {
-		position:absolute;
-		margin-left: auto;
-		margin-right: auto;
-	  }
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Blockchain Workout App</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/web3@1.3.3/dist/web3.min.js"></script>
+	<style>
+		body {
+			background-color: gray;
+			text-align: center;
+		}
 
-      form {
-        width: 350px;
-        margin-bottom: 10px;
-      }
-      ul {
-        margin-bottom: 0px;
-      }
+		button {
+			background-color: aquamarine;
+			font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+		}
 
-      #completedTaskList .content {
-        color: grey;
-        text-decoration: line-through;
-      }
-      #searchList {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-      }
-      #searchList div label {
-        border: 1px solid #ddd;
-        margin-top: -1px;
-        background-color: #f6f6f6;
-        padding: 12px;
-        color: black;
-        display: block;
-      }
-      #searchList div label:hover:not(.header) {
-        background-color: #eee;
-      }
+		button:hover {
+			background-color: yellow;
+		}
 
-      #height::placeholder {
-        text-align: right;
-      }
+		main {
+			margin-top: 60px;
+		}
 
-      #weight::placeholder {
-        text-align: right;
-      }
-    </style>
-  </head>
-  <body>
+		#searchTraining {
+			position: absolute;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		form {
+			width: 350px;
+			margin-bottom: 10px;
+		}
+
+		ul {
+			margin-bottom: 0px;
+		}
+
+		#completedTaskList .content {
+			color: grey;
+			text-decoration: line-through;
+		}
+
+		#searchList {
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		#searchList div label {
+			border: 1px solid #ddd;
+			margin-top: -1px;
+			background-color: #f6f6f6;
+			padding: 12px;
+			color: black;
+			display: block;
+		}
+
+		#searchList div label:hover:not(.header) {
+			background-color: #eee;
+		}
+
+		#height::placeholder {
+			text-align: right;
+		}
+
+		#weight::placeholder {
+			text-align: right;
+		}
+
+		#activity {
+			width: 180px;
+		}
+
+		.error {
+			color: red;
+			font-size: 15px;
+		}
+
+		#ageError {
+			display: none;
+		}
+
+		#weightError {
+			display: none;
+		}
+
+		#heightError {
+			display: none;
+		}
+
+		#ageError2 {
+			display: none;
+		}
+
+		#weightError2 {
+			display: none;
+		}
+
+		#heightError2 {
+			display: none;
+		}
+
+		#genderError2 {
+			display: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
 	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-		<a
-		  class="navbar-brand col-sm-3 col-md-2 mr-0"
-		  href=""
-		  target="_self"
-		  >Blockchain Workout App</a
-		>
+		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="" target="_self">Blockchain Workout App</a>
 		</button>
 		<ul class="navbar-nav px-3">
-		  <li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
-			<small
-			  ><a class="nav-link" href="#"><span id="account"></span></a
-			></small>
-		  </li>
+			<li class="nav-item text-nowrap d-none d-sm-none d-sm-block">
+				<a class="nav-item" id="account"></a>
+				<button class="nav-item" onclick="connectMetamask()">CONNECT TO METAMASK</button>
+			</li>
 		</ul>
-		<button onclick="connectMetamask()">CONNECT TO METAMASK</button>
-    <p id="accountArea"></p>
-	  </nav>
-		<button onclick="connectMetamask()">CONNECT TO METAMASK</button>
-    <p id="accountArea"></p>
-	<div id="searchTraining">
-		  <div class="searchBar">
-			<input
-			  id="newTask"
-			  type="text"
-			  class="form-control"
-			  placeholder="Search for traning..."
-			  required
-			/>
-			<ul id="searchList" class="list-unstyled">
-			  <div
-				class="searchTrainTemplate"
-				class="checkbox"
-				style="
-				  display: none;
-				  background-color: rgb(182, 182, 182);
-				  text-align: center;
-				"
-			  >
-				<label>
-				  <input type="checkbox" />
-				  <span class="content">Train goes here...</span>
-				  <span
-					class="kcal"
-					style="background-color: rgb(0, 187, 255)"
-				  ></span>
-				</label>
-			  </div>
-			</ul>
-			<button onclick="getTrainningTypes()">
-				Search
-			</button>
-			<div class="row">
-				<div class="input-group">
-				  <input
-					id="workName"
-					type="text"
-					class="form-control"
-					style="display: none"
-					readonly
-				  />
-				  <input
-					id="burnedLabel"
-					type="text"
-					class="form-control"
-					placeholder="Training time"
-					style="display: none"
-					readonly
-					width="5"
-					required
-				  />
-				  <input
-					id="workoutMinLabel"
-					class="form-control"
-					type="text"
-					style="width: 60px; display: none"
-					placeholder="min"
-					required
-				  />
-				</div>
-			  </div>
-			  <div class="row">
-				<input
-              id="sendBtn"
-              type="button"
-              value="Send"
-              class="form-control btn-success mt-1"
-              style="display: none"
-			  onclick="send()"
-            />
-			</div>
-			</div>
-		  </div>
-	</div>
-	
-    <button onclick="connectContract()">CONNECT TO Contract</button>
-    <p id="contractArea"></p>
-    <button onclick="readContract()">GET DATA FROM CONTRACT</button>
-	<ul id="trainList" class="list-unstyled">
-		<div class="trainTemplate" class="checkbox" style="display: none">
-		  <label>
-			<input type="checkbox" />
-			<span class="content">Train goes here...</span>
-			<span class="workoutTime"></span>
-			<span
-			  class="kcal"
-			  style="background-color: rgb(0, 187, 255)"
-			></span>
-			<span class="workoutTimestamp"></span>
-		  </label>
-		</div>
-	  </ul>
-    
-	  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type="text/javascript" src="./javascript/script.js"></script>
-  </body>
+
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+			integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+		</script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+			integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+		</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script type="text/javascript" src="./javascript/home.js"></script>
+</body>
+
 </html>

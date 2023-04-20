@@ -9,6 +9,7 @@ const connectMetamask = async () => {
     });
     account = accounts[0];
     document.getElementById("account").innerHTML = account;
+    connectContract();
   }
 };
 
@@ -172,9 +173,6 @@ const readContract = async () => {
   };
 
   xhttp.send();
-
-  //const workouts = JSON.parse(xhttp.response.json);
-  //console.log(xhttp.responseText);
 };
 const getTrainningTypes = async (e) => {
   resetSearchBar();
@@ -246,37 +244,9 @@ function toggleClicked(e) {
   $("#workoutMinLabel").show();
 }
 async function send() {
-  /*
-  const workName = $("#workName").val();
-  const burnedCalorie = $("#burnedLabel").val();
-  const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
-  const imageHash = imgBase64;
-  console.log(imageHash);
-  let date = new Date();
-  let yyyy = date.getFullYear();
-  let mm =
-    date.getMonth() > 0 && date.getMonth() < 9
-      ? "0" + date.getMonth()
-      : date.getMonth();
-  let dd = date.getDate();
-  let h = date.getHours();
-  let m = date.getMinutes();
-  let s = date.getSeconds();
-  let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m + ":" + s;
-  console.log(
-    workName,
-    Math.ceil((burnedCalorie / 60) * workoutMin),
-    workoutMin,
-    imageHash,
-    curr_date
-  );
-  await window.contract.methods.createWorkout(
-    workName,
-    Math.ceil((burnedCalorie / 60) * workoutMin),
-    workoutMin,
-    curr_date
-  );
-  */
+  if (account == undefined) {
+    connectMetamask();
+  }
   const workName = $("#workName").val();
   const burnedCalorie = $("#burnedLabel").val();
   const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
@@ -292,18 +262,6 @@ async function send() {
   let s = date.getSeconds();
   let curr_date = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m;
   let workDate = Date.now(curr_date);
-  var xmlhttp = new window.XMLHttpRequest();
-  xmlhttp.open("POST", "/addWorkout", true);
-  xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xmlhttp.send(
-    JSON.stringify({
-      workoutName: workName,
-      burnedCal: burnedCalorie,
-      workoutTime: workoutMin,
-      workoutTimeStamp: workDate,
-      account: account,
-    })
-  );
   await window.contract.methods
     .createWorkout(
       workName,
@@ -311,5 +269,6 @@ async function send() {
       workoutMin,
       workDate
     )
-    .send({ from: account });
+    .send({ from: account })
+    .then(window.location.reload);
 }
