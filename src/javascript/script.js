@@ -3,216 +3,264 @@ let account;
 let imgBase64;
 
 const connectMetamask = async () => {
-  if (window.ethereum !== "undefined") {
-    const accounts = await ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    account = accounts[0];
-    document.getElementById("account").innerHTML = account;
-    connectContract();
-  }
+	if (window.ethereum !== "undefined") {
+		const accounts = await ethereum.request({
+			method: "eth_requestAccounts",
+		});
+		account = accounts[0];
+		document.getElementById("account").innerHTML = account;
+		connectContract();
+	}
 };
 
 const connectContract = async () => {
-  let address = "0x3160eC2684799E415FBCfDba222A09E64c7958e1";
-  let abi = [
-    {
-      inputs: [],
-      payable: false,
-      stateMutability: "nonpayable",
-      type: "constructor",
-    },
-    {
-      constant: true,
-      inputs: [],
-      name: "workoutCount",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      payable: false,
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      constant: true,
-      inputs: [
-        {
-          internalType: "uint256",
-          name: "",
-          type: "uint256",
-        },
-      ],
-      name: "workouts",
-      outputs: [
-        {
-          internalType: "uint256",
-          name: "id",
-          type: "uint256",
-        },
-        {
-          internalType: "string",
-          name: "workoutName",
-          type: "string",
-        },
-        {
-          internalType: "uint256",
-          name: "burnedCalories",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "workoutTime",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "timeStamp",
-          type: "uint256",
-        },
-      ],
-      payable: false,
-      stateMutability: "view",
-      type: "function",
-    },
-    {
-      constant: false,
-      inputs: [
-        {
-          internalType: "string",
-          name: "_workoutName",
-          type: "string",
-        },
-        {
-          internalType: "uint256",
-          name: "_burnedCalories",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "_workoutTime",
-          type: "uint256",
-        },
-        {
-          internalType: "uint256",
-          name: "_timeStamp",
-          type: "uint256",
-        },
-      ],
-      name: "createWorkout",
-      outputs: [],
-      payable: false,
-      stateMutability: "nonpayable",
-      type: "function",
-    },
-  ];
-  window.web3 = await new Web3(window.ethereum);
-  window.contract = await new window.web3.eth.Contract(abi, address);
-  document.getElementById("contractArea").innerHTML =
-    "connected to smart contract";
+	let address = "0x3160eC2684799E415FBCfDba222A09E64c7958e1";
+	let abi = [
+		{
+			inputs: [],
+			payable: false,
+			stateMutability: "nonpayable",
+			type: "constructor",
+		},
+		{
+			constant: true,
+			inputs: [],
+			name: "workoutCount",
+			outputs: [
+				{
+					internalType: "uint256",
+					name: "",
+					type: "uint256",
+				},
+			],
+			payable: false,
+			stateMutability: "view",
+			type: "function",
+		},
+		{
+			constant: true,
+			inputs: [
+				{
+					internalType: "uint256",
+					name: "",
+					type: "uint256",
+				},
+			],
+			name: "workouts",
+			outputs: [
+				{
+					internalType: "uint256",
+					name: "id",
+					type: "uint256",
+				},
+				{
+					internalType: "string",
+					name: "workoutName",
+					type: "string",
+				},
+				{
+					internalType: "uint256",
+					name: "burnedCalories",
+					type: "uint256",
+				},
+				{
+					internalType: "uint256",
+					name: "workoutTime",
+					type: "uint256",
+				},
+				{
+					internalType: "uint256",
+					name: "timeStamp",
+					type: "uint256",
+				},
+			],
+			payable: false,
+			stateMutability: "view",
+			type: "function",
+		},
+		{
+			constant: false,
+			inputs: [
+				{
+					internalType: "string",
+					name: "_workoutName",
+					type: "string",
+				},
+				{
+					internalType: "uint256",
+					name: "_burnedCalories",
+					type: "uint256",
+				},
+				{
+					internalType: "uint256",
+					name: "_workoutTime",
+					type: "uint256",
+				},
+				{
+					internalType: "uint256",
+					name: "_timeStamp",
+					type: "uint256",
+				},
+			],
+			name: "createWorkout",
+			outputs: [],
+			payable: false,
+			stateMutability: "nonpayable",
+			type: "function",
+		},
+	];
+	window.web3 = await new Web3(window.ethereum);
+	window.contract = await new window.web3.eth.Contract(abi, address);
+	document.getElementById("contractArea").innerHTML =
+		"connected to smart contract";
 };
 
 const readContract = async () => {
-  /*
-  const workoutCount = await window.contract.methods.workoutCount().call();
-  const $workoutTemplate = $(".trainTemplate");
-  for (let i = 1; i <= workoutCount; i++) {
-    const workout = await window.contract.methods.workouts(i).call();
-    const workoutName = workout[1];
-    const burnedCal = workout[2];
-    const workoutTime = workout[3];
-    const $newTrainTemplate = $workoutTemplate.clone();
-    $newTrainTemplate.find(".content").html(workoutName);
-    $newTrainTemplate.find(".kcal").html(burnedCal + " kcal");
-    $newTrainTemplate.find(".workoutTime").html(workoutTime + " minute");
-    $("#trainList").append($newTrainTemplate);
+	/*
+	const workoutCount = await window.contract.methods.workoutCount().call();
+	const $workoutTemplate = $(".trainTemplate");
+	for (let i = 1; i <= workoutCount; i++) {
+	  const workout = await window.contract.methods.workouts(i).call();
+	  const workoutName = workout[1];
+	  const burnedCal = workout[2];
+	  const workoutTime = workout[3];
+	  const $newTrainTemplate = $workoutTemplate.clone();
+	  $newTrainTemplate.find(".content").html(workoutName);
+	  $newTrainTemplate.find(".kcal").html(burnedCal + " kcal");
+	  $newTrainTemplate.find(".workoutTime").html(workoutTime + " minute");
+	  $("#trainList").append($newTrainTemplate);
+  
+	  $newTrainTemplate.show();
+	}
+	*/
+	const $workoutTemplate = $(".trainTemplate");
+	var dateSelect = document.getElementById("dateSelect");
+	var last = "";
+	const xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "http://localhost:3000/getWorkouts", true);
+	xhttp.responseType = "text";
+	var dateNow = new Date(Date.now());
+	var dateNowMM = dateNow.getMonth() > 0 && dateNow.getMonth() < 9
+		? "0" + dateNow.getMonth()
+		: date.getMonth();
+	var dateNowStr = (dateNow.getFullYear() + "-" + dateNowMM + "-" + dateNow.getDate()).toLocaleString();
+	var dateArray = [];
+	var workouts;
+	xhttp.onload = () => {
+		if (xhttp.readyState === xhttp.DONE) {
+			if (xhttp.status === 200) {
+				workouts = JSON.parse(xhttp.response);
+				for (let workout of workouts) {
+					var date = new Date(Number(workout.workoutTimeStamp));
+					let yyyy = date.getFullYear();
+					let mm =
+						date.getMonth() > 0 && date.getMonth() < 9
+							? "0" + date.getMonth()
+							: date.getMonth();
+					let dd = date.getDate();
+					let h = date.getHours();
+					let m =
+						date.getMinutes() > 0 && date.getMinutes() < 9
+							? "0" + date.getMinutes()
+							: date.getMinutes();
+					let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m;
+					let dateToSelect = yyyy + "-" + mm + "-" + dd;
+					if (dateToSelect != last) {
+						var dateOption = document.createElement("option");
+						dateOption.value = dateToSelect.toLocaleString();
+						dateOption.text = dateToSelect.toLocaleString();
+						dateSelect.appendChild(dateOption);
+						dateArray.push(dateToSelect);
+						last = dateToSelect;
+					}
+				}
+				if (!dateArray.includes(dateNowStr)) {
+					var dateOption = document.createElement("option");
+					dateOption.value = dateNowStr;
+					dateOption.text = dateNowStr;
+					dateSelect.appendChild(dateOption);
+					dateSelect.value = dateNowStr;
+				}
+				$("#dateSelect").show();
+			}
+		}
+		dateSelect.onchange = (e) => {
+			if (e.target.value) {
+				document.getElementById("trainList").innerHTML = "";
+				for (workout of workouts) {
+					var date = new Date(Number(workout.workoutTimeStamp));
+					let yyyy = date.getFullYear();
+					let mm =
+						date.getMonth() > 0 && date.getMonth() < 9
+							? "0" + date.getMonth()
+							: date.getMonth();
+					let dd = date.getDate();
+					let h = date.getHours();
+					let m =
+						date.getMinutes() > 0 && date.getMinutes() < 9
+							? "0" + date.getMinutes()
+							: date.getMinutes();
+					let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m;
+					let dateToSelect = yyyy + "-" + mm + "-" + dd;
+					if (dateToSelect.toLocaleString() == e.target.value) {
+						const $newTrainTemplate = $workoutTemplate.clone();
+						$newTrainTemplate.find(".content").html(workout.workoutName);
+						$newTrainTemplate.find(".kcal").html(workout.burnedCal + " kcal");
+						$newTrainTemplate
+							.find(".workoutTime")
+							.html(workout.workoutTime + " minute");
+						$newTrainTemplate
+							.find(".workoutTimestamp")
+							.html(curr_date.toLocaleString());
+						$("#trainList").append($newTrainTemplate);
+						$newTrainTemplate.show();
+					}
+				}
+			}
+		}
+	};
 
-    $newTrainTemplate.show();
-  }
-  */
-  const $workoutTemplate = $(".trainTemplate");
-  const xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "http://localhost:3000/getWorkouts", true);
-  xhttp.responseType = "text";
-
-  xhttp.onload = () => {
-    if (xhttp.readyState === xhttp.DONE) {
-      if (xhttp.status === 200) {
-        var workouts = JSON.parse(xhttp.response);
-        for (let workout of workouts) {
-          var date = new Date(Number(workout.workoutTimeStamp));
-          let yyyy = date.getFullYear();
-          let mm =
-            date.getMonth() > 0 && date.getMonth() < 9
-              ? "0" + date.getMonth()
-              : date.getMonth();
-          let dd = date.getDate();
-          let h = date.getHours();
-          let m =
-            date.getMinutes() > 0 && date.getMinutes() < 9
-              ? "0" + date.getMinutes()
-              : date.getMinutes();
-          let curr_date = yyyy + "-" + mm + "-" + dd + " " + h + ":" + m;
-          const $newTrainTemplate = $workoutTemplate.clone();
-          $newTrainTemplate.find(".content").html(workout.workoutName);
-          $newTrainTemplate.find(".kcal").html(workout.burnedCal + " kcal");
-          $newTrainTemplate
-            .find(".workoutTime")
-            .html(workout.workoutTime + " minute");
-          $newTrainTemplate
-            .find(".workoutTimestamp")
-            .html(curr_date.toLocaleString());
-          $("#trainList").append($newTrainTemplate);
-          $newTrainTemplate.show();
-        }
-      }
-    }
-  };
-
-  xhttp.send();
+	xhttp.send();
 };
 const getTrainningTypes = async (e) => {
-  resetSearchBar();
-  const trainType = document.getElementById("newTask").value;
-  if (trainType == "") {
-    console.log("empty");
-    return;
-  } else {
-    const api = await fetch(
-      `https://api.api-ninjas.com/v1/caloriesburned?activity=${trainType}`,
-      {
-        method: "GET",
-        headers: {
-          "X-Api-Key": "+0LGFTD9TcVGhqrkmoq7Ag==ZTjjsmy8MvIR3uu5",
-        },
-      }
-    );
-    let myJson = await api.json();
-    const $trainTemplate = $(".searchTrainTemplate");
-    for (let training of myJson) {
-      const $newTrainTemplate = $trainTemplate.clone();
-      $newTrainTemplate.find(".content").html(training.name);
-      $newTrainTemplate
-        .find(".kcal")
-        .html(training.calories_per_hour + "kcal/hour");
-      $newTrainTemplate
-        .find("input")
-        .prop("name", training.name)
-        .prop("kcal", training.calories_per_hour)
-        .on("click", toggleClicked);
+	resetSearchBar();
+	const trainType = document.getElementById("newTask").value;
+	if (trainType == "") {
+		console.log("empty");
+		return;
+	} else {
+		const api = await fetch(
+			`https://api.api-ninjas.com/v1/caloriesburned?activity=${trainType}`,
+			{
+				method: "GET",
+				headers: {
+					"X-Api-Key": "+0LGFTD9TcVGhqrkmoq7Ag==ZTjjsmy8MvIR3uu5",
+				},
+			}
+		);
+		let myJson = await api.json();
+		const $trainTemplate = $(".searchTrainTemplate");
+		for (let training of myJson) {
+			const $newTrainTemplate = $trainTemplate.clone();
+			$newTrainTemplate.find(".content").html(training.name);
+			$newTrainTemplate
+				.find(".kcal")
+				.html(training.calories_per_hour + "kcal/hour");
+			$newTrainTemplate
+				.find("input")
+				.prop("name", training.name)
+				.prop("kcal", training.calories_per_hour)
+				.on("click", toggleClicked);
 
-      $("#searchList").append($newTrainTemplate);
-      $newTrainTemplate.show();
-    }
-  }
+			$("#searchList").append($newTrainTemplate);
+			$newTrainTemplate.show();
+		}
+	}
 };
 
 function resetSearchBar() {
-  $("#searchList").empty();
-  $("#searchList").append(`
+	$("#searchList").empty();
+	$("#searchList").append(`
 	<div
 	class="searchTrainTemplate"
 	class="checkbox"
@@ -235,40 +283,40 @@ function resetSearchBar() {
 }
 
 function toggleClicked(e) {
-  $("#workName").val(e.target.name);
-  $("#burnedLabel").val(e.target.kcal);
-  $("#sendBtn").show();
-  $("#workName").show();
-  $("#workoutImage").show();
-  //$("#burnedLabel").show();
-  $("#workoutMinLabel").show();
+	$("#workName").val(e.target.name);
+	$("#burnedLabel").val(e.target.kcal);
+	$("#sendBtn").show();
+	$("#workName").show();
+	$("#workoutImage").show();
+	//$("#burnedLabel").show();
+	$("#workoutMinLabel").show();
 }
 async function send() {
-  if (account == undefined) {
-    connectMetamask();
-  }
-  const workName = $("#workName").val();
-  const burnedCalorie = $("#burnedLabel").val();
-  const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
-  let date = new Date();
-  let yyyy = date.getFullYear();
-  let mm =
-    date.getMonth() > 0 && date.getMonth() < 9
-      ? "0" + date.getMonth()
-      : date.getMonth();
-  let dd = date.getDate();
-  let h = date.getHours();
-  let m = date.getMinutes();
-  let s = date.getSeconds();
-  let curr_date = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m;
-  let workDate = Date.now(curr_date);
-  await window.contract.methods
-    .createWorkout(
-      workName,
-      Math.ceil((burnedCalorie / 60) * workoutMin),
-      workoutMin,
-      workDate
-    )
-    .send({ from: account })
-    .then(window.location.reload);
+	if (account == undefined) {
+		connectMetamask();
+	}
+	const workName = $("#workName").val();
+	const burnedCalorie = $("#burnedLabel").val();
+	const workoutMin = parseInt($("#workoutMinLabel").val(), 10);
+	let date = new Date();
+	let yyyy = date.getFullYear();
+	let mm =
+		date.getMonth() > 0 && date.getMonth() < 9
+			? "0" + date.getMonth()
+			: date.getMonth();
+	let dd = date.getDate();
+	let h = date.getHours();
+	let m = date.getMinutes();
+	let s = date.getSeconds();
+	let curr_date = yyyy + "/" + mm + "/" + dd + " " + h + ":" + m;
+	let workDate = Date.now(curr_date);
+	await window.contract.methods
+		.createWorkout(
+			workName,
+			Math.ceil((burnedCalorie / 60) * workoutMin),
+			workoutMin,
+			workDate
+		)
+		.send({ from: account })
+		.then(window.location.reload);
 }

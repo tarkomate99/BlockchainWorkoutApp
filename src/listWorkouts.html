@@ -135,6 +135,9 @@
 		#listSection{
 			margin-top: 5%;
 		}
+		#dateSelect{
+			display: none;
+		}
 	</style>
 </head>
 
@@ -190,6 +193,7 @@
 		<button onclick="connectContract()">CONNECT TO Contract</button>
 		<p id="contractArea"></p>
 		<button onclick="readContract()">GET DATA FROM CONTRACT</button>
+		<select name="dateSelect" id="dateSelect"></select>
 		<ul id="trainList" class="list-unstyled">
 			<div class="trainTemplate" class="checkbox" style="display: none">
 				<label>

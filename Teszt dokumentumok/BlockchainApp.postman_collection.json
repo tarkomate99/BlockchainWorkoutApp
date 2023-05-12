@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "a606e43f-f67e-4b6b-9c7e-491003c0455d",
+		"name": "BlockchainApp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getWorkouts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "+0LGFTD9TcVGhqrkmoq7Ag==ZTjjsmy8MvIR3uu5",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/getWorkouts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"getWorkouts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calcBMI",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Típus teszt\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    console.log(jsonData);",
+							"    pm.expect(typeof(jsonData.bmi)).to.eql(\"string\");",
+							"    pm.expect(typeof(jsonData.bmi_weight)).to.eql(\"string\");",
+							"});",
+							"",
+							"pm.test(\"Nem NaN típus teszt\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(typeof(jsonData)).to.not.eql(\"NaN\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"age\": 18,\n    \"height\": 187,\n    \"weight\": 90\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/calcBMI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calcBMI"
+					],
+					"query": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "calcCal",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"gender\": \"Male\",\n    \"height\": 187,\n    \"weight\": 90,\n    \"age\": 20,\n    \"activity\": 1.55,\n    \"goal\": \"build\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/calcCal",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"calcCal"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
